@@ -204,6 +204,44 @@
             ""
         ]
     },
+    "aiCurvature": {
+        "aiCurvature": "VRayCurvature",
+        "outColor": [
+            "outColor",
+            "float3",
+            ""
+        ],
+        "outColorB": [
+            "outColorB",
+            "float",
+            ""
+        ],
+        "outColorG": [
+            "outColorG",
+            "float",
+            ""
+        ],
+        "outColorR": [
+            "outColorR",
+            "float",
+            ""
+        ],
+        "radius": [
+            "sampleSpread",
+            "float",
+            ""
+        ],
+        "samples": [
+            "subdivs",
+            "long",
+            ""
+        ],
+        "threshold": [
+            "threshold",
+            "float",
+            ""
+        ]
+    },
     "aiFlat": {
         "aiFlat": "VRayLightMtl",
         "color": [
@@ -277,11 +315,6 @@
         "filter": [
             "filter",
             "enum",
-            ""
-        ],
-        "ignoreColorSpaceFileRules": [
-            "ignoreColorSpaceFileRules",
-            "bool",
             ""
         ],
         "offset": [
@@ -543,6 +576,26 @@
             "float",
             ""
         ],
+        "color": [
+            "domeTex",
+            "float3",
+            ""
+        ],
+        "colorB": [
+            "colorB",
+            "float",
+            ""
+        ],
+        "colorG": [
+            "colorG",
+            "float",
+            ""
+        ],
+        "colorR": [
+            "colorR",
+            "float",
+            ""
+        ],
         "intensity": [
             "intensity",
             "float",
@@ -707,22 +760,22 @@
         "emissionColor": [
             "illumColor",
             "float3",
-            ""
+            "0.0"
         ],
         "emissionColorB": [
             "illumColorB",
             "float",
-            ""
+            "0.0"
         ],
         "emissionColorG": [
             "illumColorG",
             "float",
-            ""
+            "0.0"
         ],
         "emissionColorR": [
             "illumColorR",
             "float",
-            ""
+            "0.0"
         ],
         "metalness": [
             "metalness",

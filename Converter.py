@@ -1,4 +1,3 @@
-
 # Copyright 2020 by Mahmoud El-Ashry. All Rights Reserved.
 #
 # This library is free software: you can redistribute it and/or
@@ -12,10 +11,11 @@
 # You should have received a copy of the GNU Lesser General Public
 # License along with this library. If not, see <http://www.gnu.org/licenses/>.
 
-import maya.cmds as cmds
 import json
 import os
 import traceback
+
+import maya.cmds as cmds
 
 # the name of  render engines differs from their plugins, so this needs to be edited if adding new renderer
 render_engines_dic = {'arnold': 'mtoa', 'vray': 'vrayformaya', 'renderman': 'RenderMan_for_Maya',
@@ -88,10 +88,10 @@ class ConverterClass(object):
 
     def get_type_attributes(self, node_type, parent_type):
         result_attrs = {}
-        if parent_type == 'light' and node_type not in mayaLightTypes:
-            type_attrs = cmds.attributeInfo(inherited=False, leaf=False, logicalAnd=True, type=node_type)
-        else:
-            type_attrs = cmds.attributeInfo(leaf=False, type=node_type)
+        # if parent_type == 'light' and node_type not in mayaLightTypes:
+        #     type_attrs = cmds.attributeInfo(inherited=False, leaf=False, logicalAnd=True, type=node_type)
+        # else:
+        type_attrs = cmds.attributeInfo(leaf=False, type=node_type)
         if type_attrs is not None:
             for attribute in type_attrs:
                 if attribute not in ignore_attributes:
@@ -190,29 +190,30 @@ class ConverterClass(object):
                         out_attribute_factor = out_attribute_list[2]
 
                         if isinstance(in_value, (list, dict, tuple)):
-                            if out_attribute_factor == 'Inverse':
-                                value_a = abs(1 - in_value[0][0])
-                                value_b = abs(1 - in_value[0][1])
-                                value_c = abs(1 - in_value[0][2])
-                            elif isfloat(out_attribute_factor):
-                                value_a = float(out_attribute_factor)
-                                value_b = float(out_attribute_factor)
-                                value_c = float(out_attribute_factor)
-                            else:
-                                value_a = in_value[0][0]
-                                value_b = in_value[0][1]
-                                value_c = in_value[0][2]
+                            if len(in_value) == 3:
+                                if out_attribute_factor == 'Inverse':
+                                    value_a = abs(1 - in_value[0][0])
+                                    value_b = abs(1 - in_value[0][1])
+                                    value_c = abs(1 - in_value[0][2])
+                                elif isfloat(out_attribute_factor):
+                                    value_a = float(out_attribute_factor)
+                                    value_b = float(out_attribute_factor)
+                                    value_c = float(out_attribute_factor)
+                                else:
+                                    value_a = in_value[0][0]
+                                    value_b = in_value[0][1]
+                                    value_c = in_value[0][2]
 
-                            print(in_node + '.' + out_attribute + ' is setting to value(list): ',
-                                  value_a, value_b, value_c)
-                            try:
-                                cmds.setAttr(new_node + '.' + out_attribute, value_a, value_b, value_c,
-                                             type=out_attribute_type)
-                                print('\tValue set successfully \n')
-                            except Exception:
-                                print('\tFailed to set value \n')
-                                unconverted_attributes.append(in_node + '.' + out_attribute)
-                                traceback.print_exc()
+                                print(in_node + '.' + out_attribute + ' is setting to value(list): ',
+                                      value_a, value_b, value_c)
+                                try:
+                                    cmds.setAttr(new_node + '.' + out_attribute, value_a, value_b, value_c,
+                                                 type=out_attribute_type)
+                                    print('\tValue set successfully \n')
+                                except Exception:
+                                    print('\tFailed to set value \n')
+                                    unconverted_attributes.append(in_node + '.' + out_attribute)
+                                    traceback.print_exc()
                         else:
                             if out_attribute_factor == 'Inverse' and isinstance(in_value, float):
                                 in_value = abs(1 - in_value)
@@ -396,7 +397,8 @@ class ConverterClass(object):
             unconverted_attributes = []
 
             if materials:
-                scene_materials, scene_textures = self.list_materials(source_engine, selected=selected, in_render=in_render)
+                scene_materials, scene_textures = self.list_materials(source_engine, selected=selected,
+                                                                      in_render=in_render)
                 self.print_title('Converting Materials:')
                 for material in scene_materials:
                     print('\n\tMaterial:' + material)
@@ -457,8 +459,8 @@ class ConverterClass(object):
 
 
 def isfloat(value):
-  try:
-    float(value)
-    return True
-  except ValueError:
-    return False
+    try:
+        float(value)
+        return True
+    except ValueError:
+        return False
