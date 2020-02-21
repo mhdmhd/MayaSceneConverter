@@ -1,6 +1,8 @@
 
 # Maya Scene Converter
 
+#### Work in progress
+
 Maya Scene Converter is a python-based Qt tool for converting scenes
  from a render engine to another in Maya, it is not a perfect conversion and it depends on the rules files
   and how good they are but gives you a great head start.
@@ -25,7 +27,7 @@ Maya Scene Converter is a python-based Qt tool for converting scenes
 
 ## Installation
 
-1. Download and unzip the *MayaSceneConverter.zip* file from [github releases](https://github.com/).
+1. Download and unzip the *MayaSceneConverter.zip* file from [github releases](https://github.com/mhdmhd/MayaSceneConverter).
 
 2. Drag and drop the "SceneConverter/install.mel" file onto the Maya viewport.
 
@@ -46,7 +48,7 @@ For more information please click [here](LICENSE.md).
 
 Comments, suggestions and bug reports are welcome.
 
-Feel free to submit any issues with the error message and a detailed step by step process of how you got the error in [github issues](https://github.com/).
+Feel free to submit any issues with the error message and a detailed step by step process of how you got the error in [github issues](https://github.com/mhdmhd/MayaSceneConverter).
 
 ### Scene converter UI
 
