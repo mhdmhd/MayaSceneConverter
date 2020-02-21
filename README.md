@@ -31,11 +31,6 @@ Maya Scene Converter is a python-based Qt tool for converting scenes
 3. Click the icon on the shelf to run.
 
 
-## Documentation
-
-Find the latest documentation [here](DOCS.md).
-
-
 ## Contributing
 
 Contributions are always welcome! Whether it's reporting bugs, feature requests, creating conversion rules,
@@ -52,4 +47,9 @@ Comments, suggestions and bug reports are welcome.
 
 Feel free to submit any issues with the error message and a detailed step by step process of how you got the error in [github issues](https://github.com/).
 
-<img src="Screenshot.jpg" width="1405" height="709"/>
+###Scene converter UI
+<img src="Convert.jpg" width="257" height="193"/>
+
+###Scene Converter Editor UI
+
+<img src="Editor.jpg" width="1045" height="586"/>
