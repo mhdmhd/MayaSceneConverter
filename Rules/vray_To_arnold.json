@@ -1,0 +1,645 @@
+{
+    "Engines": [
+        "vray",
+        "arnold"
+    ],
+    "VRayCarPaintMtl": {
+        "VRayCarPaintMtl": "aiCarPaint",
+        "base_bumpMap": [
+            "normalCamera",
+            "float3",
+			""
+        ],
+        "base_color": [
+            "baseColor",
+            "float3",
+			""
+        ],
+        "coat_bumpMap": [
+            "coatNormal",
+            "float3",
+			""
+        ],
+        "coat_color": [
+            "coatColor",
+            "float3",
+			""
+        ],
+        "coat_glossiness": [
+            "coatRoughness",
+            "float",
+			""
+        ],
+        "coat_strength": [
+            "coat",
+            "float",
+			""
+        ],
+        "flake_color": [
+            "flakeColor",
+            "float3",
+			""
+        ],
+        "flake_density": [
+            "flakeDensity",
+            "float",
+			""
+        ],
+        "flake_glossiness": [
+            "flakeRoughness",
+            "float",
+			""
+        ],
+        "flake_scale": [
+            "flakeScale",
+            "float",
+			""
+        ],
+        "outColor": [
+            "outColor",
+            "float3",
+			""
+        ],
+        "outTransparency": [
+            "outTransparency",
+            "float3",
+			""
+        ]
+    },
+    "VRayCurvature": {
+        "VRayCurvature": "aiCurvature",
+        "outColor": [
+            "outColor",
+            "float3",
+			""
+        ],
+        "scale": [
+            "multiply",
+            "float",
+			""
+        ],
+        "subdivs": [
+            "samples",
+            "long",
+			""
+        ],
+        "threshold": [
+            "threshold",
+            "float",
+			""
+        ]
+    },
+    "VRayDirt": {
+        "VRayDirt": "aiAmbientOcclusion",
+        "blackColor": [
+            "black",
+            "float3",
+			""
+        ],
+        "distribution": [
+            "spread",
+            "float",
+			""
+        ],
+        "falloff": [
+            "falloff",
+            "float",
+			""
+        ],
+        "outColor": [
+            "outColor",
+            "float3",
+			""
+        ],
+        "subdivs": [
+            "samples",
+            "long",
+			""
+        ],
+        "whiteColor": [
+            "white",
+            "float3",
+			""
+        ]
+    },
+    "VRayEdges": {
+        "VRayEdges": "aiWireframe",
+        "backgroundColor": [
+            "fillColor",
+            "float3",
+			""
+        ],
+        "edgesColor": [
+            "lineColor",
+            "float3",
+			""
+        ],
+        "outColor": [
+            "outColor",
+            "float3",
+			""
+        ],
+        "pixelWidth": [
+            "lineWidth",
+            "float",
+			""
+        ]
+    },
+    "VRayFalloff": {
+        "VRayFalloff": "multiplyDivide",
+        "frontColor": [
+            "input1",
+            "float3",
+			""
+        ],
+        "outColor": [
+            "output",
+            "float3",
+			""
+        ]
+    },
+    "VRayHairNextMtl": {
+        "VRayHairNextMtl": "aiStandardHair",
+        "diffuse_amount": [
+            "base",
+            "float",
+			""
+        ],
+        "diffuse_color": [
+            "baseColor",
+            "float3",
+			""
+        ],
+        "glossiness": [
+            "roughness",
+            "float",
+			""
+        ],
+        "ior": [
+            "ior",
+            "float",
+			""
+        ],
+        "melanin": [
+            "melanin",
+            "float",
+			""
+        ],
+        "outAlpha": [
+            "outAlpha",
+            "float",
+			""
+        ],
+        "outColor": [
+            "outColor",
+            "float3",
+			""
+        ],
+        "primary_tint": [
+            "specularTint",
+            "float3",
+			""
+        ],
+        "secondary_tint": [
+            "specular2Tint",
+            "float3",
+			""
+        ],
+        "transmission_tint": [
+            "transmissionTint",
+            "float3",
+			""
+        ],
+        "transparency": [
+            "opacity",
+            "float3",
+			""
+        ]
+    },
+    "VRayLightDomeShape": {
+        "VRayLightDomeShape": "aiSkyDomeLight",
+        "diffuseContrib": [
+            "aiDiffuse",
+            "float",
+			""
+        ],
+        "intensity": [
+            "intensity",
+            "float",
+			""
+        ],
+        "shadowColor": [
+            "aiShadowColor",
+            "float3",
+			""
+        ],
+        "specularContrib": [
+            "aiSpecular",
+            "float",
+			""
+        ],
+        "temperature": [
+            "aiColorTemperature",
+            "float",
+			""
+        ],
+        "texResolution": [
+            "resolution",
+            "long",
+			""
+        ]
+    },
+    "VRayLightIESShape": {
+        "VRayLightIESShape": "aiPhotometricLight",
+        "color": [
+            "color",
+            "float3",
+			""
+        ],
+        "diffuseContrib": [
+            "aiDiffuse",
+            "float",
+			""
+        ],
+        "iesFile": [
+            "aiFilename",
+            "typed",
+			""
+        ],
+        "intensity": [
+            "intensity",
+            "float",
+			""
+        ],
+        "specularContrib": [
+            "aiSpecular",
+            "float",
+			""
+        ],
+        "temperature": [
+            "aiColorTemperature",
+            "float",
+			""
+        ]
+    },
+    "VRayLightMesh": {
+        "VRayLightMesh": "aiMeshLight",
+        "color": [
+            "color",
+            "float3",
+			""
+        ],
+        "diffuseContrib": [
+            "aiDiffuse",
+            "float",
+			""
+        ],
+        "intensity": [
+            "intensity",
+            "float",
+			""
+        ],
+        "outColor": [
+            "outColor",
+            "float3",
+			""
+        ],
+        "outTransparency": [
+            "outTransparency",
+            "float3",
+			""
+        ],
+        "shadowColor": [
+            "aiShadowColor",
+            "float3",
+			""
+        ],
+        "specularContrib": [
+            "aiSpecular",
+            "float",
+			""
+        ]
+    },
+    "VRayLightMtl": {
+        "VRayLightMtl": "aiFlat",
+        "color": [
+            "color",
+            "float3",
+			""
+        ],
+        "outColor": [
+            "outColor",
+            "float3",
+			""
+        ],
+        "outTransparency": [
+            "outTransparency",
+            "float3",
+			""
+        ]
+    },
+    "VRayLightRectShape": {
+        "VRayLightRectShape": "aiAreaLight",
+        "color": [
+            "color",
+            "float3",
+			""
+        ],
+        "diffuseContrib": [
+            "aiDiffuse",
+            "float",
+			""
+        ],
+        "intensity": [
+            "intensity",
+            "float",
+			""
+        ],
+        "shadowColor": [
+            "aiShadowColor",
+            "float3",
+			""
+        ],
+        "specularContrib": [
+            "aiSpecular",
+            "float",
+			""
+        ],
+        "temperature": [
+            "aiColorTemperature",
+            "float",
+			""
+        ]
+    },
+    "VRayLightSphereShape": {
+        "VRayLightSphereShape": "pointLight",
+        "affectDiffuse": [
+            "emitDiffuse",
+            "bool",
+			""
+        ],
+        "affectSpecular": [
+            "emitSpecular",
+            "bool",
+			""
+        ],
+        "color": [
+            "color",
+            "float3",
+			""
+        ],
+        "diffuseContrib": [
+            "aiDiffuse",
+            "float",
+			""
+        ],
+        "intensity": [
+            "intensity",
+            "float",
+			""
+        ],
+        "objectColorRGB": [
+            "objectColorRGB",
+            "float3",
+			""
+        ],
+        "shadowColor": [
+            "shadowColor",
+            "float3",
+			""
+        ],
+        "specularContrib": [
+            "aiSpecular",
+            "float",
+			""
+        ],
+        "temperature": [
+            "aiColorTemperature",
+            "float",
+			""
+        ],
+        "visibility": [
+            "visibility",
+            "bool",
+			""
+        ]
+    },
+    "VRayMtl": {
+        "VRayMtl": "aiStandardSurface",
+        "anisotropy": [
+            "specularAnisotropy",
+            "float",
+			""
+        ],
+        "anisotropyRotation": [
+            "specularRotation",
+            "float",
+			""
+        ],
+        "bumpMap": [
+            "normalCamera",
+            "float3",
+			""
+        ],
+        "diffuseColor": [
+            "baseColor",
+            "float3",
+			""
+        ],
+        "diffuseColorAmount": [
+            "base",
+            "float",
+			""
+        ],
+        "doubleSided": [
+            "thinWalled",
+            "bool",
+			""
+        ],
+        "illumColor": [
+            "emissionColor",
+            "float3",
+			""
+        ],
+        "metalness": [
+            "metalness",
+            "float",
+			""
+        ],
+        "opacityMap": [
+            "opacity",
+            "float3",
+			""
+        ],
+        "opacityMapB": [
+            "opacityB",
+            "float",
+			""
+        ],
+        "opacityMapG": [
+            "opacityG",
+            "float",
+			""
+        ],
+        "opacityMapR": [
+            "opacityR",
+            "float",
+			""
+        ],
+        "outColor": [
+            "outColor",
+            "float3",
+			""
+        ],
+        "outTransparency": [
+            "outTransparency",
+            "float3",
+			""
+        ],
+        "reflectionColor": [
+            "specularColor",
+            "float3",
+			""
+        ],
+        "reflectionColorAmount": [
+            "specular",
+            "float",
+			""
+        ],
+        "reflectionGlossiness": [
+            "specularRoughness",
+            "float",
+			""
+        ],
+        "refractionColor": [
+            "transmissionColor",
+            "float3",
+			""
+        ],
+        "refractionGlossiness": [
+            "transmissionExtraRoughness",
+            "float",
+			""
+        ],
+        "refractionIOR": [
+            "specularIOR",
+            "float",
+			""
+        ],
+        "roughnessAmount": [
+            "diffuseRoughness",
+            "float",
+			""
+        ]
+    },
+    "VRayMtlHair3": {
+        "VRayMtlHair3": "aiStandardHair",
+        "diffuseColor": [
+            "diffuseColor",
+            "float3",
+			""
+        ],
+        "outColor": [
+            "outColor",
+            "float3",
+			""
+        ]
+    },
+    "VRaySky": {
+        "VRaySky": "aiPhysicalSky",
+        "filterColor": [
+            "skyTint",
+            "float3",
+			""
+        ],
+        "groundAlbedo": [
+            "groundAlbedo",
+            "float3",
+			""
+        ],
+        "outColor": [
+            "outColor",
+            "float3",
+			""
+        ],
+        "sizeMultiplier": [
+            "sunSize",
+            "float",
+			""
+        ],
+        "turbidity": [
+            "turbidity",
+            "float",
+			""
+        ]
+    },
+    "VRaySunShape": {
+        "VRaySunShape": "aiSkyDomeLight",
+        "atmosShadows": [
+            "aiCastVolumetricShadows",
+            "bool",
+			""
+        ],
+        "diffuseContrib": [
+            "aiDiffuse",
+            "float",
+			""
+        ],
+        "intensity": [
+            "intensity",
+            "float",
+			""
+        ],
+        "shadowColor": [
+            "aiShadowColor",
+            "float3",
+			""
+        ],
+        "specularContrib": [
+            "aiSpecular",
+            "float",
+			""
+        ]
+    },
+    "VRayToonMtl": {
+        "VRayToonMtl": "aiToon",
+        "maskColor": [
+            "maskColor",
+            "float3",
+			""
+        ],
+        "outColor": [
+            "outColor",
+            "float3",
+			""
+        ],
+        "outTransparency": [
+            "outTransparency",
+            "float3",
+			""
+        ]
+    },
+    "VRayTriplanar": {
+        "VRayTriplanar": "aiTriplanar",
+        "blend": [
+            "blend",
+            "float",
+			""
+        ],
+        "outColor": [
+            "outColor",
+            "float3",
+			""
+        ],
+        "scale": [
+            "scale",
+            "float",
+			""
+        ],
+        "textureX": [
+            "input",
+            "float3",
+			""
+        ]
+    }
+}

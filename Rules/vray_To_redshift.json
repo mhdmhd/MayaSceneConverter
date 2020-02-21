@@ -1,0 +1,762 @@
+{
+    "Engines": [
+        "vray",
+        "redshift"
+    ],
+    "VRayDirt": {
+        "VRayDirt": "RedshiftAmbientOcclusion",
+        "blackColor": [
+            "dark",
+            "float3",
+			""
+        ],
+        "blackColorB": [
+            "darkB",
+            "float",
+			""
+        ],
+        "blackColorG": [
+            "darkG",
+            "float",
+			""
+        ],
+        "blackColorR": [
+            "darkR",
+            "float",
+			""
+        ],
+        "considerSameObjectOnly": [
+            "sameObjectOnly",
+            "bool",
+			""
+        ],
+        "falloff": [
+            "fallOff",
+            "float",
+			""
+        ],
+        "outColor": [
+            "outColor",
+            "float3",
+			""
+        ],
+        "outColorB": [
+            "outColorB",
+            "float",
+			""
+        ],
+        "outColorG": [
+            "outColorG",
+            "float",
+			""
+        ],
+        "outColorR": [
+            "outColorR",
+            "float",
+			""
+        ],
+        "subdivs": [
+            "numSamples",
+            "long",
+			""
+        ],
+        "whiteColor": [
+            "bright",
+            "float3",
+			""
+        ],
+        "whiteColorB": [
+            "brightB",
+            "float",
+			""
+        ],
+        "whiteColorG": [
+            "brightG",
+            "float",
+			""
+        ],
+        "whiteColorR": [
+            "brightR",
+            "float",
+			""
+        ]
+    },
+    "VRayLightDomeShape": {
+        "VRayLightDomeShape": "RedshiftDomeLight",
+        "affectDiffuse": [
+            "affectsDiffuse",
+            "bool",
+			""
+        ],
+        "affectSpecular": [
+            "affectsSpecular",
+            "bool",
+			""
+        ],
+        "color": [
+            "color",
+            "float3",
+			""
+        ],
+        "colorB": [
+            "colorB",
+            "float",
+			""
+        ],
+        "colorG": [
+            "colorG",
+            "float",
+			""
+        ],
+        "colorR": [
+            "colorR",
+            "float",
+			""
+        ],
+        "enabled": [
+            "on",
+            "bool",
+			""
+        ],
+        "intensity": [
+            "multiplier",
+            "float",
+			""
+        ],
+        "lightDirection": [
+            "lightDirection",
+            "float3",
+			""
+        ],
+        "lightDirectionX": [
+            "lightDirectionX",
+            "float",
+			""
+        ],
+        "lightDirectionY": [
+            "lightDirectionY",
+            "float",
+			""
+        ],
+        "lightDirectionZ": [
+            "lightDirectionZ",
+            "float",
+			""
+        ],
+        "lightIntensity": [
+            "lightIntensity",
+            "float3",
+			""
+        ],
+        "lightIntensityB": [
+            "lightIntensityB",
+            "float",
+			""
+        ],
+        "lightIntensityG": [
+            "lightIntensityG",
+            "float",
+			""
+        ],
+        "lightIntensityR": [
+            "lightIntensityR",
+            "float",
+			""
+        ],
+        "locatorScale": [
+            "locatorScale",
+            "float",
+			""
+        ]
+    },
+    "VRayLightIESShape": {
+        "VRayLightIESShape": "RedshiftIESLight",
+        "color": [
+            "color",
+            "float3",
+			""
+        ],
+        "colorB": [
+            "colorB",
+            "float",
+			""
+        ],
+        "colorG": [
+            "colorG",
+            "float",
+			""
+        ],
+        "colorMode": [
+            "colorMode",
+            "enum",
+			""
+        ],
+        "colorR": [
+            "colorR",
+            "float",
+			""
+        ],
+        "decayRate": [
+            "decayRate",
+            "long",
+			""
+        ],
+        "enabled": [
+            "on",
+            "bool",
+			""
+        ],
+        "iesFile": [
+            "profile",
+            "typed",
+			""
+        ],
+        "intensity": [
+            "intensity",
+            "float",
+			""
+        ],
+        "lightDirection": [
+            "lightDirection",
+            "float3",
+			""
+        ],
+        "lightDirectionX": [
+            "lightDirectionX",
+            "float",
+			""
+        ],
+        "lightDirectionY": [
+            "lightDirectionY",
+            "float",
+			""
+        ],
+        "lightDirectionZ": [
+            "lightDirectionZ",
+            "float",
+			""
+        ],
+        "lightIntensity": [
+            "lightIntensity",
+            "float3",
+			""
+        ],
+        "lightIntensityB": [
+            "lightIntensityB",
+            "float",
+			""
+        ],
+        "lightIntensityG": [
+            "lightIntensityG",
+            "float",
+			""
+        ],
+        "lightIntensityR": [
+            "lightIntensityR",
+            "float",
+			""
+        ],
+        "temperature": [
+            "temperature",
+            "float",
+			""
+        ],
+        "useRayTraceShadows": [
+            "useRayTraceShadows",
+            "bool",
+			""
+        ]
+    },
+    "VRayLightRectShape": {
+        "VRayLightRectShape": "RedshiftPhysicalLight",
+        "affectDiffuse": [
+            "affectsDiffuse",
+            "bool",
+			""
+        ],
+        "affectSpecular": [
+            "affectsSpecular",
+            "bool",
+			""
+        ],
+        "color": [
+            "color",
+            "float3",
+			""
+        ],
+        "colorB": [
+            "colorB",
+            "float",
+			""
+        ],
+        "colorG": [
+            "colorG",
+            "float",
+			""
+        ],
+        "colorMode": [
+            "colorMode",
+            "enum",
+			""
+        ],
+        "colorR": [
+            "colorR",
+            "float",
+			""
+        ],
+        "decayRate": [
+            "decayRate",
+            "long",
+			""
+        ],
+        "diffuseContrib": [
+            "diffuseRayContributionScale",
+            "float",
+			""
+        ],
+        "intensity": [
+            "intensity",
+            "float",
+			""
+        ],
+        "lightDirection": [
+            "lightDirection",
+            "float3",
+			""
+        ],
+        "lightDirectionX": [
+            "lightDirectionX",
+            "float",
+			""
+        ],
+        "lightDirectionY": [
+            "lightDirectionY",
+            "float",
+			""
+        ],
+        "lightDirectionZ": [
+            "lightDirectionZ",
+            "float",
+			""
+        ],
+        "lightIntensity": [
+            "lightIntensity",
+            "float3",
+			""
+        ],
+        "lightIntensityB": [
+            "lightIntensityB",
+            "float",
+			""
+        ],
+        "lightIntensityG": [
+            "lightIntensityG",
+            "float",
+			""
+        ],
+        "lightIntensityR": [
+            "lightIntensityR",
+            "float",
+			""
+        ],
+        "locatorScale": [
+            "locatorScale",
+            "float",
+			""
+        ],
+        "temperature": [
+            "temperature",
+            "float",
+			""
+        ],
+        "units": [
+            "unitsType",
+            "enum",
+			""
+        ],
+        "useRayTraceShadows": [
+            "useRayTraceShadows",
+            "bool",
+			""
+        ]
+    },
+    "VRayLightSphereShape": {
+        "VRayLightSphereShape": "pointLight",
+        "color": [
+            "color",
+            "float3",
+			""
+        ],
+        "colorB": [
+            "colorB",
+            "float",
+			""
+        ],
+        "colorG": [
+            "colorG",
+            "float",
+			""
+        ],
+        "colorR": [
+            "colorR",
+            "float",
+			""
+        ],
+        "decayRate": [
+            "decayRate",
+            "long",
+			""
+        ],
+        "emitDiffuse": [
+            "emitDiffuse",
+            "bool",
+			""
+        ],
+        "emitSpecular": [
+            "emitSpecular",
+            "bool",
+			""
+        ],
+        "intensity": [
+            "intensity",
+            "float",
+			""
+        ],
+        "lightDirection": [
+            "lightDirection",
+            "float3",
+			""
+        ],
+        "lightDirectionX": [
+            "lightDirectionX",
+            "float",
+			""
+        ],
+        "lightDirectionY": [
+            "lightDirectionY",
+            "float",
+			""
+        ],
+        "lightDirectionZ": [
+            "lightDirectionZ",
+            "float",
+			""
+        ],
+        "lightIntensity": [
+            "lightIntensity",
+            "float3",
+			""
+        ],
+        "lightIntensityB": [
+            "lightIntensityB",
+            "float",
+			""
+        ],
+        "lightIntensityG": [
+            "lightIntensityG",
+            "float",
+			""
+        ],
+        "lightIntensityR": [
+            "lightIntensityR",
+            "float",
+			""
+        ],
+        "locatorScale": [
+            "locatorScale",
+            "float",
+			""
+        ],
+        "shadowColor": [
+            "shadowColor",
+            "float3",
+			""
+        ],
+        "shadowColorB": [
+            "shadowColorB",
+            "float",
+			""
+        ],
+        "shadowColorG": [
+            "shadowColorG",
+            "float",
+			""
+        ],
+        "shadowColorR": [
+            "shadowColorR",
+            "float",
+			""
+        ],
+        "useRayTraceShadows": [
+            "useRayTraceShadows",
+            "bool",
+			""
+        ]
+    },
+    "VRayMtl": {
+        "VRayMtl": "RedshiftMaterial",
+        "bumpMap": [
+            "bump_input",
+            "float3",
+			""
+        ],
+        "bumpMapB": [
+            "bump_inputB",
+            "float",
+			""
+        ],
+        "bumpMapG": [
+            "bump_inputG",
+            "float",
+			""
+        ],
+        "bumpMapR": [
+            "bump_inputR",
+            "float",
+			""
+        ],
+        "diffuseColor": [
+            "diffuse_color",
+            "float3",
+			""
+        ],
+        "diffuseColorAmount": [
+            "diffuse_weight",
+            "float",
+			""
+        ],
+        "diffuseColorB": [
+            "diffuse_colorB",
+            "float",
+			""
+        ],
+        "diffuseColorG": [
+            "diffuse_colorG",
+            "float",
+			""
+        ],
+        "diffuseColorR": [
+            "diffuse_colorR",
+            "float",
+			""
+        ],
+        "doubleSided": [
+            "refr_thin_walled",
+            "bool",
+			""
+        ],
+        "illumColor": [
+            "emission_color",
+            "float3",
+			""
+        ],
+        "illumColorB": [
+            "emission_colorB",
+            "float",
+			""
+        ],
+        "illumColorG": [
+            "emission_colorG",
+            "float",
+			""
+        ],
+        "illumColorR": [
+            "emission_colorR",
+            "float",
+			""
+        ],
+        "metalness": [
+            "refl_metalness",
+            "float",
+			""
+        ],
+        "opacityMap": [
+            "opacity_color",
+            "float3",
+			""
+        ],
+        "opacityMapB": [
+            "opacity_colorB",
+            "float",
+			""
+        ],
+        "opacityMapG": [
+            "opacity_colorG",
+            "float",
+			""
+        ],
+        "opacityMapR": [
+            "opacity_colorR",
+            "float",
+			""
+        ],
+        "outColor": [
+            "outColor",
+            "float3",
+			""
+        ],
+        "outColorB": [
+            "outColorB",
+            "float",
+			""
+        ],
+        "outColorG": [
+            "outColorG",
+            "float",
+			""
+        ],
+        "outColorR": [
+            "outColorR",
+            "float",
+			""
+        ],
+        "reflectionColor": [
+            "refl_color",
+            "float3",
+			""
+        ],
+        "reflectionColorB": [
+            "refl_colorB",
+            "float",
+			""
+        ],
+        "reflectionColorG": [
+            "refl_colorG",
+            "float",
+			""
+        ],
+        "reflectionColorR": [
+            "refl_colorR",
+            "float",
+			""
+        ],
+        "reflectionGlossiness": [
+            "refl_roughness",
+            "float",
+			""
+        ],
+        "refractionColor": [
+            "refr_color",
+            "float3",
+			""
+        ],
+        "refractionColorB": [
+            "refr_colorB",
+            "float",
+			""
+        ],
+        "refractionColorG": [
+            "refr_colorG",
+            "float",
+			""
+        ],
+        "refractionColorR": [
+            "refr_colorR",
+            "float",
+			""
+        ],
+        "refractionGlossiness": [
+            "refr_roughness",
+            "float",
+			""
+        ],
+        "refractionIOR": [
+            "refr_ior",
+            "float",
+			""
+        ],
+        "roughnessAmount": [
+            "diffuse_roughness",
+            "float",
+			""
+        ],
+        "translucencyColor": [
+            "transl_color",
+            "float3",
+			""
+        ],
+        "translucencyColorB": [
+            "transl_colorB",
+            "float",
+			""
+        ],
+        "translucencyColorG": [
+            "transl_colorG",
+            "float",
+			""
+        ],
+        "translucencyColorR": [
+            "transl_colorR",
+            "float",
+			""
+        ]
+    },
+    "VRaySky": {
+        "VRaySky": "RedshiftPhysicalSky",
+        "groundAlbedo": [
+            "ground_color",
+            "float3",
+			""
+        ],
+        "groundAlbedoB": [
+            "ground_colorB",
+            "float",
+			""
+        ],
+        "groundAlbedoG": [
+            "ground_colorG",
+            "float",
+			""
+        ],
+        "groundAlbedoR": [
+            "ground_colorR",
+            "float",
+			""
+        ],
+        "horizonOffset": [
+            "horizon_height",
+            "float",
+			""
+        ],
+        "intensityMult": [
+            "multiplier",
+            "float",
+			""
+        ],
+        "outColor": [
+            "outColor",
+            "float3",
+			""
+        ],
+        "outColorB": [
+            "outColorB",
+            "float",
+			""
+        ],
+        "outColorG": [
+            "outColorG",
+            "float",
+			""
+        ],
+        "outColorR": [
+            "outColorR",
+            "float",
+			""
+        ],
+        "ozone": [
+            "ozone",
+            "float",
+			""
+        ],
+        "sizeMultiplier": [
+            "sun_disk_scale",
+            "float",
+			""
+        ],
+        "turbidity": [
+            "haze",
+            "float",
+			""
+        ]
+    }
+}

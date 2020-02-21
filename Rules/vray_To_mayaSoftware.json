@@ -1,0 +1,561 @@
+{
+    "Engines": [
+        "vray",
+        "mayaSoftware"
+    ],
+    "VRayLightMtl": {
+        "VRayLightMtl": "blinn",
+        "color": [
+            "incandescence",
+            "float3",
+            ""
+        ],
+        "colorB": [
+            "incandescenceB",
+            "float",
+            ""
+        ],
+        "colorG": [
+            "incandescenceG",
+            "float",
+            ""
+        ],
+        "colorR": [
+            "incandescenceR",
+            "float",
+            ""
+        ],
+        "outColor": [
+            "outColor",
+            "float3",
+            ""
+        ],
+        "outColorB": [
+            "outColorB",
+            "float",
+            ""
+        ],
+        "outColorG": [
+            "outColorG",
+            "float",
+            ""
+        ],
+        "outColorR": [
+            "outColorR",
+            "float",
+            ""
+        ],
+        "outTransparency": [
+            "outTransparency",
+            "float3",
+            ""
+        ],
+        "outTransparencyB": [
+            "outTransparencyB",
+            "float",
+            ""
+        ],
+        "outTransparencyG": [
+            "outTransparencyG",
+            "float",
+            ""
+        ],
+        "outTransparencyR": [
+            "outTransparencyR",
+            "float",
+            ""
+        ]
+    },
+    "VRayLightRectShape": {
+        "VRayLightRectShape": "areaLight",
+        "color": [
+            "color",
+            "float3",
+            ""
+        ],
+        "colorB": [
+            "colorB",
+            "float",
+            ""
+        ],
+        "colorG": [
+            "colorG",
+            "float",
+            ""
+        ],
+        "colorR": [
+            "colorR",
+            "float",
+            ""
+        ],
+        "decayRate": [
+            "decayRate",
+            "long",
+            ""
+        ],
+        "emitDiffuse": [
+            "emitDiffuse",
+            "bool",
+            ""
+        ],
+        "emitSpecular": [
+            "emitSpecular",
+            "bool",
+            ""
+        ],
+        "intensity": [
+            "intensity",
+            "float",
+            ""
+        ],
+        "lightDirection": [
+            "lightDirection",
+            "float3",
+            ""
+        ],
+        "lightDirectionX": [
+            "lightDirectionX",
+            "float",
+            ""
+        ],
+        "lightDirectionY": [
+            "lightDirectionY",
+            "float",
+            ""
+        ],
+        "lightDirectionZ": [
+            "lightDirectionZ",
+            "float",
+            ""
+        ],
+        "lightIntensity": [
+            "lightIntensity",
+            "float3",
+            ""
+        ],
+        "lightIntensityB": [
+            "lightIntensityB",
+            "float",
+            ""
+        ],
+        "lightIntensityG": [
+            "lightIntensityG",
+            "float",
+            ""
+        ],
+        "lightIntensityR": [
+            "lightIntensityR",
+            "float",
+            ""
+        ],
+        "locatorScale": [
+            "locatorScale",
+            "float",
+            ""
+        ],
+        "shadowColor": [
+            "shadowColor",
+            "float3",
+            ""
+        ],
+        "shadowColorB": [
+            "shadowColorB",
+            "float",
+            ""
+        ],
+        "shadowColorG": [
+            "shadowColorG",
+            "float",
+            ""
+        ],
+        "shadowColorR": [
+            "shadowColorR",
+            "float",
+            ""
+        ],
+        "useRayTraceShadows": [
+            "useRayTraceShadows",
+            "bool",
+            ""
+        ]
+    },
+    "VRayLightSphereShape": {
+        "VRayLightSphereShape": "pointLight",
+        "color": [
+            "color",
+            "float3",
+            ""
+        ],
+        "colorB": [
+            "colorB",
+            "float",
+            ""
+        ],
+        "colorG": [
+            "colorG",
+            "float",
+            ""
+        ],
+        "colorR": [
+            "colorR",
+            "float",
+            ""
+        ],
+        "decayRate": [
+            "decayRate",
+            "long",
+            ""
+        ],
+        "emitDiffuse": [
+            "emitDiffuse",
+            "bool",
+            ""
+        ],
+        "emitSpecular": [
+            "emitSpecular",
+            "bool",
+            ""
+        ],
+        "intensity": [
+            "intensity",
+            "float",
+            ""
+        ],
+        "lightDirection": [
+            "lightDirection",
+            "float3",
+            ""
+        ],
+        "lightDirectionX": [
+            "lightDirectionX",
+            "float",
+            ""
+        ],
+        "lightDirectionY": [
+            "lightDirectionY",
+            "float",
+            ""
+        ],
+        "lightDirectionZ": [
+            "lightDirectionZ",
+            "float",
+            ""
+        ],
+        "lightIntensity": [
+            "lightIntensity",
+            "float3",
+            ""
+        ],
+        "lightIntensityB": [
+            "lightIntensityB",
+            "float",
+            ""
+        ],
+        "lightIntensityG": [
+            "lightIntensityG",
+            "float",
+            ""
+        ],
+        "lightIntensityR": [
+            "lightIntensityR",
+            "float",
+            ""
+        ],
+        "locatorScale": [
+            "locatorScale",
+            "float",
+            ""
+        ],
+        "shadowColor": [
+            "shadowColor",
+            "float3",
+            ""
+        ],
+        "shadowColorB": [
+            "shadowColorB",
+            "float",
+            ""
+        ],
+        "shadowColorG": [
+            "shadowColorG",
+            "float",
+            ""
+        ],
+        "shadowColorR": [
+            "shadowColorR",
+            "float",
+            ""
+        ],
+        "useRayTraceShadows": [
+            "useRayTraceShadows",
+            "bool",
+            ""
+        ]
+    },
+    "VRayMtl": {
+        "VRayMtl": "blinn",
+        "bumpMap": [
+            "normalCamera",
+            "float3",
+            ""
+        ],
+        "bumpMapB": [
+            "normalCameraX",
+            "float",
+            ""
+        ],
+        "bumpMapG": [
+            "normalCameraY",
+            "float",
+            ""
+        ],
+        "bumpMapR": [
+            "normalCameraZ",
+            "float",
+            ""
+        ],
+        "diffuseColor": [
+            "color",
+            "float3",
+            ""
+        ],
+        "diffuseColorAmount": [
+            "diffuse",
+            "float",
+            ""
+        ],
+        "diffuseColorB": [
+            "colorB",
+            "float",
+            ""
+        ],
+        "diffuseColorG": [
+            "colorG",
+            "float",
+            ""
+        ],
+        "diffuseColorR": [
+            "colorR",
+            "float",
+            ""
+        ],
+        "illumColor": [
+            "incandescence",
+            "float3",
+            ""
+        ],
+        "illumColorB": [
+            "incandescenceB",
+            "float",
+            ""
+        ],
+        "illumColorG": [
+            "incandescenceG",
+            "float",
+            ""
+        ],
+        "illumColorR": [
+            "incandescenceR",
+            "float",
+            ""
+        ],
+        "opacityMap": [
+            "transparency",
+            "float3",
+            "Inverse"
+        ],
+        "opacityMapB": [
+            "transparencyB",
+            "float",
+            "Inverse"
+        ],
+        "opacityMapG": [
+            "transparencyG",
+            "float",
+            "Inverse"
+        ],
+        "opacityMapR": [
+            "transparencyR",
+            "float",
+            "Inverse"
+        ],
+        "outColor": [
+            "outColor",
+            "float3",
+            ""
+        ],
+        "outColorB": [
+            "outColorB",
+            "float",
+            ""
+        ],
+        "outColorG": [
+            "outColorG",
+            "float",
+            ""
+        ],
+        "outColorR": [
+            "outColorR",
+            "float",
+            ""
+        ],
+        "outTransparency": [
+            "outTransparency",
+            "float3",
+            ""
+        ],
+        "outTransparencyB": [
+            "outTransparencyB",
+            "float",
+            ""
+        ],
+        "outTransparencyG": [
+            "outTransparencyG",
+            "float",
+            ""
+        ],
+        "outTransparencyR": [
+            "outTransparencyR",
+            "float",
+            ""
+        ],
+        "reflectionColor": [
+            "specularColor",
+            "float3",
+            ""
+        ],
+        "reflectionColorAmount": [
+            "specularRollOff",
+            "float",
+            ""
+        ],
+        "reflectionColorB": [
+            "specularColorB",
+            "float",
+            ""
+        ],
+        "reflectionColorG": [
+            "specularColorG",
+            "float",
+            ""
+        ],
+        "reflectionColorR": [
+            "specularColorR",
+            "float",
+            ""
+        ],
+        "reflectionGlossiness": [
+            "eccentricity",
+            "float",
+            ""
+        ]
+    },
+    "VRaySunShape": {
+        "VRaySunShape": "directionalLight",
+        "color": [
+            "color",
+            "float3",
+            ""
+        ],
+        "colorB": [
+            "colorB",
+            "float",
+            ""
+        ],
+        "colorG": [
+            "colorG",
+            "float",
+            ""
+        ],
+        "colorR": [
+            "colorR",
+            "float",
+            ""
+        ],
+        "decayRate": [
+            "decayRate",
+            "long",
+            ""
+        ],
+        "emitDiffuse": [
+            "emitDiffuse",
+            "bool",
+            ""
+        ],
+        "emitSpecular": [
+            "emitSpecular",
+            "bool",
+            ""
+        ],
+        "intensity": [
+            "intensity",
+            "float",
+            ""
+        ],
+        "lightDirection": [
+            "lightDirection",
+            "float3",
+            ""
+        ],
+        "lightDirectionX": [
+            "lightDirectionX",
+            "float",
+            ""
+        ],
+        "lightDirectionY": [
+            "lightDirectionY",
+            "float",
+            ""
+        ],
+        "lightDirectionZ": [
+            "lightDirectionZ",
+            "float",
+            ""
+        ],
+        "lightIntensity": [
+            "lightIntensity",
+            "float3",
+            ""
+        ],
+        "lightIntensityB": [
+            "lightIntensityB",
+            "float",
+            ""
+        ],
+        "lightIntensityG": [
+            "lightIntensityG",
+            "float",
+            ""
+        ],
+        "lightIntensityR": [
+            "lightIntensityR",
+            "float",
+            ""
+        ],
+        "shadowColor": [
+            "shadowColor",
+            "float3",
+            ""
+        ],
+        "shadowColorB": [
+            "shadowColorB",
+            "float",
+            ""
+        ],
+        "shadowColorG": [
+            "shadowColorG",
+            "float",
+            ""
+        ],
+        "shadowColorR": [
+            "shadowColorR",
+            "float",
+            ""
+        ],
+        "useRayTraceShadows": [
+            "useRayTraceShadows",
+            "bool",
+            ""
+        ]
+    }
+}

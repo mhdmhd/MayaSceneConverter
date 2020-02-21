@@ -1,0 +1,941 @@
+{
+    "Engines": [
+        "arnold",
+        "vray"
+    ],
+    "aiAmbientOcclusion": {
+        "aiAmbientOcclusion": "VRayDirt",
+        "black": [
+            "blackColor",
+            "float3",
+            ""
+        ],
+        "blackB": [
+            "blackColorB",
+            "float",
+            ""
+        ],
+        "blackG": [
+            "blackColorG",
+            "float",
+            ""
+        ],
+        "blackR": [
+            "blackColorR",
+            "float",
+            ""
+        ],
+        "falloff": [
+            "falloff",
+            "float",
+            ""
+        ],
+        "invertNormals": [
+            "invertNormal",
+            "bool",
+            ""
+        ],
+        "outColor": [
+            "outColor",
+            "float3",
+            ""
+        ],
+        "outColorB": [
+            "outColorB",
+            "float",
+            ""
+        ],
+        "outColorG": [
+            "outColorG",
+            "float",
+            ""
+        ],
+        "outColorR": [
+            "outColorR",
+            "float",
+            ""
+        ],
+        "samples": [
+            "subdivs",
+            "long",
+            ""
+        ],
+        "selfOnly": [
+            "considerSameObjectOnly",
+            "bool",
+            ""
+        ],
+        "spread": [
+            "distribution",
+            "float",
+            ""
+        ],
+        "white": [
+            "whiteColor",
+            "float3",
+            ""
+        ],
+        "whiteB": [
+            "whiteColorB",
+            "float",
+            ""
+        ],
+        "whiteG": [
+            "whiteColorG",
+            "float",
+            ""
+        ],
+        "whiteR": [
+            "whiteColorR",
+            "float",
+            ""
+        ]
+    },
+    "aiAreaLight": {
+        "aiAreaLight": "VRayLightRectShape",
+        "aiColorTemperature": [
+            "temperature",
+            "float",
+            ""
+        ],
+        "aiDiffuse": [
+            "diffuseContrib",
+            "float",
+            ""
+        ],
+        "aiSpecular": [
+            "specularContrib",
+            "float",
+            ""
+        ],
+        "color": [
+            "color",
+            "float3",
+            ""
+        ],
+        "colorB": [
+            "colorB",
+            "float",
+            ""
+        ],
+        "colorG": [
+            "colorG",
+            "float",
+            ""
+        ],
+        "colorR": [
+            "colorR",
+            "float",
+            ""
+        ],
+        "decayRate": [
+            "decayRate",
+            "short",
+            ""
+        ],
+        "intensity": [
+            "intensity",
+            "float",
+            ""
+        ],
+        "lightDirection": [
+            "lightDirection",
+            "float3",
+            ""
+        ],
+        "lightDirectionX": [
+            "lightDirectionX",
+            "float",
+            ""
+        ],
+        "lightDirectionY": [
+            "lightDirectionY",
+            "float",
+            ""
+        ],
+        "lightDirectionZ": [
+            "lightDirectionZ",
+            "float",
+            ""
+        ],
+        "lightIntensity": [
+            "lightIntensity",
+            "float3",
+            ""
+        ],
+        "lightIntensityB": [
+            "lightIntensityB",
+            "float",
+            ""
+        ],
+        "lightIntensityG": [
+            "lightIntensityG",
+            "float",
+            ""
+        ],
+        "lightIntensityR": [
+            "lightIntensityR",
+            "float",
+            ""
+        ],
+        "shadowColor": [
+            "shadowColor",
+            "float3",
+            ""
+        ],
+        "shadowColorB": [
+            "shadowColorB",
+            "float",
+            ""
+        ],
+        "shadowColorG": [
+            "shadowColorG",
+            "float",
+            ""
+        ],
+        "shadowColorR": [
+            "shadowColorR",
+            "float",
+            ""
+        ],
+        "useRayTraceShadows": [
+            "useRayTraceShadows",
+            "bool",
+            ""
+        ]
+    },
+    "aiFlat": {
+        "aiFlat": "VRayLightMtl",
+        "color": [
+            "color",
+            "float3",
+            ""
+        ],
+        "colorB": [
+            "colorB",
+            "float",
+            ""
+        ],
+        "colorG": [
+            "colorG",
+            "float",
+            ""
+        ],
+        "colorR": [
+            "colorR",
+            "float",
+            ""
+        ],
+        "outColor": [
+            "outColor",
+            "float3",
+            ""
+        ],
+        "outColorB": [
+            "outColorB",
+            "float",
+            ""
+        ],
+        "outColorG": [
+            "outColorG",
+            "float",
+            ""
+        ],
+        "outColorR": [
+            "outColorR",
+            "float",
+            ""
+        ],
+        "outTransparency": [
+            "outTransparency",
+            "float3",
+            ""
+        ],
+        "outTransparencyB": [
+            "outTransparencyB",
+            "float",
+            ""
+        ],
+        "outTransparencyG": [
+            "outTransparencyG",
+            "float",
+            ""
+        ],
+        "outTransparencyR": [
+            "outTransparencyR",
+            "float",
+            ""
+        ]
+    },
+    "aiImage": {
+        "aiImage": "file",
+        "filename": [
+            "fileTextureName",
+            "typed",
+            ""
+        ],
+        "filter": [
+            "filter",
+            "enum",
+            ""
+        ],
+        "ignoreColorSpaceFileRules": [
+            "ignoreColorSpaceFileRules",
+            "bool",
+            ""
+        ],
+        "offset": [
+            "offset",
+            "float3",
+            ""
+        ],
+        "offsetB": [
+            "offsetB",
+            "float",
+            ""
+        ],
+        "offsetG": [
+            "offsetG",
+            "float",
+            ""
+        ],
+        "offsetR": [
+            "offsetR",
+            "float",
+            ""
+        ],
+        "outAlpha": [
+            "outAlpha",
+            "float",
+            ""
+        ],
+        "outColor": [
+            "outColor",
+            "float3",
+            ""
+        ],
+        "outColorB": [
+            "outColorB",
+            "float",
+            ""
+        ],
+        "outColorG": [
+            "outColorG",
+            "float",
+            ""
+        ],
+        "outColorR": [
+            "outColorR",
+            "float",
+            ""
+        ],
+        "outTransparency": [
+            "outTransparency",
+            "float3",
+            ""
+        ],
+        "outTransparencyB": [
+            "outTransparencyB",
+            "float",
+            ""
+        ],
+        "outTransparencyG": [
+            "outTransparencyG",
+            "float",
+            ""
+        ],
+        "outTransparencyR": [
+            "outTransparencyR",
+            "float",
+            ""
+        ],
+        "useFrameExtension": [
+            "useFrameExtension",
+            "bool",
+            ""
+        ],
+        "uvcoords": [
+            "uvCoord",
+            "float2",
+            ""
+        ],
+        "workingSpace": [
+            "workingSpace",
+            "typed",
+            ""
+        ]
+    },
+    "aiMeshLight": {
+        "aiColorTemperature": [
+            "temperature",
+            "float",
+            ""
+        ],
+        "aiDiffuse": [
+            "diffuseContrib",
+            "float",
+            ""
+        ],
+        "aiMeshLight": "VRayLightMesh",
+        "aiSpecular": [
+            "specularContrib",
+            "float",
+            ""
+        ],
+        "color": [
+            "color",
+            "float3",
+            ""
+        ],
+        "colorB": [
+            "colorB",
+            "float",
+            ""
+        ],
+        "colorG": [
+            "colorG",
+            "float",
+            ""
+        ],
+        "colorR": [
+            "colorR",
+            "float",
+            ""
+        ],
+        "intensity": [
+            "intensity",
+            "float",
+            ""
+        ],
+        "lightVisible": [
+            "invisible",
+            "bool",
+            ""
+        ],
+        "outColor": [
+            "outColor",
+            "float3",
+            ""
+        ],
+        "outColorB": [
+            "outColorB",
+            "float",
+            ""
+        ],
+        "outColorG": [
+            "outColorG",
+            "float",
+            ""
+        ],
+        "outColorR": [
+            "outColorR",
+            "float",
+            ""
+        ],
+        "outTransparency": [
+            "outTransparency",
+            "float3",
+            ""
+        ],
+        "outTransparencyB": [
+            "outTransparencyB",
+            "float",
+            ""
+        ],
+        "outTransparencyG": [
+            "outTransparencyG",
+            "float",
+            ""
+        ],
+        "outTransparencyR": [
+            "outTransparencyR",
+            "float",
+            ""
+        ],
+        "shadowColor": [
+            "shadowColor",
+            "float3",
+            ""
+        ],
+        "shadowColorB": [
+            "shadowColorB",
+            "float",
+            ""
+        ],
+        "shadowColorG": [
+            "shadowColorG",
+            "float",
+            ""
+        ],
+        "shadowColorR": [
+            "shadowColorR",
+            "float",
+            ""
+        ],
+        "useRayTraceShadows": [
+            "useRayTraceShadows",
+            "bool",
+            ""
+        ]
+    },
+    "aiPhysicalSky": {
+        "aiPhysicalSky": "VRaySky",
+        "groundAlbedo": [
+            "groundAlbedo",
+            "float3",
+            ""
+        ],
+        "groundAlbedoB": [
+            "groundAlbedoB",
+            "float",
+            ""
+        ],
+        "groundAlbedoG": [
+            "groundAlbedoG",
+            "float",
+            ""
+        ],
+        "groundAlbedoR": [
+            "groundAlbedoR",
+            "float",
+            ""
+        ],
+        "outColor": [
+            "outColor",
+            "float3",
+            ""
+        ],
+        "outColorB": [
+            "outColorB",
+            "float",
+            ""
+        ],
+        "outColorG": [
+            "outColorG",
+            "float",
+            ""
+        ],
+        "outColorR": [
+            "outColorR",
+            "float",
+            ""
+        ],
+        "turbidity": [
+            "turbidity",
+            "float",
+            ""
+        ]
+    },
+    "aiSkyDomeLight": {
+        "aiColorTemperature": [
+            "temperature",
+            "float",
+            ""
+        ],
+        "aiDiffuse": [
+            "diffuseContrib",
+            "float",
+            ""
+        ],
+        "aiSkyDomeLight": "VRayLightDomeShape",
+        "aiSpecular": [
+            "specularContrib",
+            "float",
+            ""
+        ],
+        "intensity": [
+            "intensity",
+            "float",
+            ""
+        ],
+        "lightDirection": [
+            "lightDirection",
+            "float3",
+            ""
+        ],
+        "lightDirectionX": [
+            "lightDirectionX",
+            "float",
+            ""
+        ],
+        "lightDirectionY": [
+            "lightDirectionY",
+            "float",
+            ""
+        ],
+        "lightDirectionZ": [
+            "lightDirectionZ",
+            "float",
+            ""
+        ],
+        "lightIntensity": [
+            "lightIntensity",
+            "float3",
+            ""
+        ],
+        "lightIntensityB": [
+            "lightIntensityB",
+            "float",
+            ""
+        ],
+        "lightIntensityG": [
+            "lightIntensityG",
+            "float",
+            ""
+        ],
+        "lightIntensityR": [
+            "lightIntensityR",
+            "float",
+            ""
+        ]
+    },
+    "aiStandardHair": {
+        "aiStandardHair": "VRayHairNextMtl",
+        "base": [
+            "diffuse_amount",
+            "float",
+            ""
+        ],
+        "baseColor": [
+            "diffuse_color",
+            "float3",
+            ""
+        ],
+        "baseColorB": [
+            "diffuse_colorB",
+            "float",
+            ""
+        ],
+        "baseColorG": [
+            "diffuse_colorG",
+            "float",
+            ""
+        ],
+        "baseColorR": [
+            "diffuse_colorR",
+            "float",
+            ""
+        ],
+        "ior": [
+            "ior",
+            "float",
+            ""
+        ],
+        "melanin": [
+            "melanin",
+            "float",
+            ""
+        ],
+        "outAlpha": [
+            "outAlpha",
+            "float",
+            ""
+        ],
+        "outColor": [
+            "outColor",
+            "float3",
+            ""
+        ],
+        "outColorB": [
+            "outColorB",
+            "float",
+            ""
+        ],
+        "outColorG": [
+            "outColorG",
+            "float",
+            ""
+        ],
+        "outColorR": [
+            "outColorR",
+            "float",
+            ""
+        ],
+        "specular2Tint": [
+            "secondary_tint",
+            "float3",
+            ""
+        ],
+        "specular2TintB": [
+            "secondary_tintB",
+            "float",
+            ""
+        ],
+        "specular2TintG": [
+            "secondary_tintG",
+            "float",
+            ""
+        ],
+        "specular2TintR": [
+            "secondary_tintR",
+            "float",
+            ""
+        ]
+    },
+    "aiStandardSurface": {
+        "aiStandardSurface": "VRayMtl",
+        "base": [
+            "diffuseColorAmount",
+            "float",
+            ""
+        ],
+        "baseColor": [
+            "diffuseColor",
+            "float3",
+            ""
+        ],
+        "baseColorB": [
+            "diffuseColorB",
+            "float",
+            ""
+        ],
+        "baseColorG": [
+            "diffuseColorG",
+            "float",
+            ""
+        ],
+        "baseColorR": [
+            "diffuseColorR",
+            "float",
+            ""
+        ],
+        "diffuseRoughness": [
+            "roughnessAmount",
+            "float",
+            ""
+        ],
+        "emissionColor": [
+            "illumColor",
+            "float3",
+            ""
+        ],
+        "emissionColorB": [
+            "illumColorB",
+            "float",
+            ""
+        ],
+        "emissionColorG": [
+            "illumColorG",
+            "float",
+            ""
+        ],
+        "emissionColorR": [
+            "illumColorR",
+            "float",
+            ""
+        ],
+        "metalness": [
+            "metalness",
+            "float",
+            ""
+        ],
+        "normalCamera": [
+            "bumpMap",
+            "float3",
+            ""
+        ],
+        "normalCameraX": [
+            "bumpMapB",
+            "float",
+            ""
+        ],
+        "normalCameraY": [
+            "bumpMapG",
+            "float",
+            ""
+        ],
+        "normalCameraZ": [
+            "bumpMapR",
+            "float",
+            ""
+        ],
+        "opacity": [
+            "opacityMap",
+            "float3",
+            ""
+        ],
+        "opacityB": [
+            "opacityMapB",
+            "float",
+            ""
+        ],
+        "opacityG": [
+            "opacityMapG",
+            "float",
+            ""
+        ],
+        "opacityR": [
+            "opacityMapR",
+            "float",
+            ""
+        ],
+        "outColor": [
+            "outColor",
+            "float3",
+            ""
+        ],
+        "outColorB": [
+            "outColorB",
+            "float",
+            ""
+        ],
+        "outColorG": [
+            "outColorG",
+            "float",
+            ""
+        ],
+        "outColorR": [
+            "outColorR",
+            "float",
+            ""
+        ],
+        "outTransparency": [
+            "outTransparency",
+            "float3",
+            ""
+        ],
+        "outTransparencyB": [
+            "outTransparencyB",
+            "float",
+            ""
+        ],
+        "outTransparencyG": [
+            "outTransparencyG",
+            "float",
+            ""
+        ],
+        "outTransparencyR": [
+            "outTransparencyR",
+            "float",
+            ""
+        ],
+        "specular": [
+            "reflectionColorAmount",
+            "float",
+            ""
+        ],
+        "specularColor": [
+            "reflectionColor",
+            "float3",
+            ""
+        ],
+        "specularColorB": [
+            "reflectionColorB",
+            "float",
+            ""
+        ],
+        "specularColorG": [
+            "reflectionColorG",
+            "float",
+            ""
+        ],
+        "specularColorR": [
+            "reflectionColorR",
+            "float",
+            ""
+        ],
+        "specularIOR": [
+            "refractionIOR",
+            "float",
+            ""
+        ],
+        "specularRoughness": [
+            "reflectionGlossiness",
+            "float",
+            ""
+        ],
+        "transmission": [
+            "refractionColorAmount",
+            "float",
+            ""
+        ],
+        "transmissionColor": [
+            "refractionColor",
+            "float3",
+            ""
+        ],
+        "transmissionColorB": [
+            "refractionColorB",
+            "float",
+            ""
+        ],
+        "transmissionColorG": [
+            "refractionColorG",
+            "float",
+            ""
+        ],
+        "transmissionColorR": [
+            "refractionColorR",
+            "float",
+            ""
+        ]
+    },
+    "aiWireframe": {
+        "aiWireframe": "VRayEdges",
+        "fillColor": [
+            "backgroundColor",
+            "float3",
+            ""
+        ],
+        "fillColorB": [
+            "backgroundColorB",
+            "float",
+            ""
+        ],
+        "fillColorG": [
+            "backgroundColorG",
+            "float",
+            ""
+        ],
+        "fillColorR": [
+            "backgroundColorR",
+            "float",
+            ""
+        ],
+        "lineColor": [
+            "edgesColor",
+            "float3",
+            ""
+        ],
+        "lineColorB": [
+            "edgesColorB",
+            "float",
+            ""
+        ],
+        "lineColorG": [
+            "edgesColorG",
+            "float",
+            ""
+        ],
+        "lineColorR": [
+            "edgesColorR",
+            "float",
+            ""
+        ],
+        "lineWidth": [
+            "pixelWidth",
+            "float",
+            ""
+        ],
+        "outColor": [
+            "outColor",
+            "float3",
+            ""
+        ],
+        "outColorB": [
+            "outColorB",
+            "float",
+            ""
+        ],
+        "outColorG": [
+            "outColorG",
+            "float",
+            ""
+        ],
+        "outColorR": [
+            "outColorR",
+            "float",
+            ""
+        ]
+    }
+}
