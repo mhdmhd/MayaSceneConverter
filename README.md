@@ -4,17 +4,17 @@
 #### Work in progress
 
 Maya Scene Converter is a python-based Qt tool for converting scenes
- from a render engine to another in Maya, it is not a perfect conversion and it depends on the rules files
-  and how good they are but gives you a great head start.
+from a render engine to another in Maya, it is not a perfect conversion and it depends on rules files
+and how good they are but gives you a great head start.
 
 
 ## Features 
 
-* Create rules to convert from a source render engine to a target render engine
+* Creates rules to convert from a source render engine to a target render engine
 * Easy UI to create, save and load the rules
 * Supports all shading related nodes: Materials,Textures,Utilities and Lights
-* Convert all the scene or selected objects
-* Scan the scene for any node or only what belongs to the source engine
+* Converts all the scene or selected objects
+* Scans the scene for any node or only what belongs to the source engine
 * Some ready examples of rules files (not very precise but very functional)
 * Prints info about all conversions
 * Tested with Windows only but could work on other operating systems
