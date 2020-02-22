@@ -22,8 +22,8 @@ and how good they are but gives you a great head start.
 
 ## Tutorials
 
-* [How to convert](https://www.youtube.com/)
-* [How to create new rules](https://www.youtube.com/)
+* [How to convert](https://www.youtube.com/) soon
+* [How to create new rules](https://www.youtube.com/) soon
 
 ## Installation
 
