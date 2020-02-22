@@ -59,7 +59,7 @@ if not os.path.exists(r'{path}'):
 if r'{path}' not in sys.path:
     sys.path.insert(0, r'{path}')
     
-from SceneConverter import ConverterUI
+from MayaSceneConverter import ConverterUI
 ConverterUI.ConverterUI()
 '''.format(path=srcPath)
 
