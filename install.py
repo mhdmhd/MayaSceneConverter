@@ -42,7 +42,7 @@ def _onMayaDropped():
         raise IOError('Cannot find ' + iconPath)
 
     for path in sys.path:
-        if os.path.exists(path + '/SceneConverter/__init__.py'):
+        if os.path.exists(path + '/MayaSceneConverter/__init__.py'):
             maya.cmds.warning('Maya Scene Converter is already installed at ' + path)
 
     command = '''
@@ -59,7 +59,7 @@ if not os.path.exists(r'{path}'):
 if r'{path}' not in sys.path:
     sys.path.insert(0, r'{path}')
     
-from MayaSceneConverter import ConverterUI
+import ConverterUI
 ConverterUI.ConverterUI()
 '''.format(path=srcPath)
 
