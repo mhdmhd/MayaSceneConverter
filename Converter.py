@@ -21,6 +21,10 @@ import maya.cmds as cmds
 render_engines_dic = {'arnold': 'mtoa', 'vray': 'vrayformaya', 'renderman': 'RenderMan_for_Maya',
                       'redshift': 'redshift4maya'}
 
+other_types_list = ['enum', 'double', 'typed', 'compound', 'short',
+                   'time', 'double3', 'float2', 'byte', 'fltMatrix', 'char', 'doubleAngle', 'floatLinear',
+                   'double2', 'long2', 'doubleLinear', 'matrix', 'double4', 'generic']
+
 mayaLightTypes = ["ambientLight", "pointLight", "spotLight", "areaLight", "directionalLight", "volumeLight"]
 ignore_attributes = ['message', 'caching', 'frozen', 'isHistoricallyInteresting', 'nodeState', 'binMembership',
                      'lightData', 'iconName']
@@ -86,18 +90,23 @@ class ConverterClass(object):
                     engine_nodes.append(node)
         return engine_nodes
 
-    def get_type_attributes(self, node_type, parent_type):
+    def get_type_attributes(self, node_type, inherited, others, excluded_types):
         result_attrs = {}
-        # if parent_type == 'light' and node_type not in mayaLightTypes:
-        #     type_attrs = cmds.attributeInfo(inherited=False, leaf=False, logicalAnd=True, type=node_type)
-        # else:
-        type_attrs = cmds.attributeInfo(leaf=False, type=node_type)
+        if inherited:
+            type_attrs = cmds.attributeInfo(leaf=False, type=node_type)
+        else:
+            type_attrs = cmds.attributeInfo(inherited=False, leaf=False, logicalAnd=True, type=node_type)
+
         if type_attrs is not None:
             for attribute in type_attrs:
                 if attribute not in ignore_attributes:
                     attr_type = cmds.attributeQuery(attribute, type=node_type, attributeType=True)
-                    if attr_type not in ignore_types:
-                        result_attrs[attribute] = attr_type
+                    if attr_type not in ignore_types and attr_type not in excluded_types:
+                        if others:
+                            result_attrs[attribute] = attr_type
+                        else:
+                            if attr_type not in other_types_list:
+                                result_attrs[attribute] = attr_type
         return result_attrs
 
     def get_attribute_children(self, attribute, node_type):
@@ -446,7 +455,8 @@ class ConverterClass(object):
                 print('\n\t' + attribute)
 
         else:
-            print('Target render engine is not loaded')
+            cmds.inViewMessage(amg='In-view message <hl>Target render engine is not loaded</hl>.', pos='midCenter',
+                               fade=True)
 
     def get_filenames(self, directory):
         file_list = []

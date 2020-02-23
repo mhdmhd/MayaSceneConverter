@@ -1,4 +1,3 @@
-
 # Copyright 2020 by Mahmoud El-Ashry. All Rights Reserved.
 #
 # This library is free software: you can redistribute it and/or
@@ -12,10 +11,12 @@
 # You should have received a copy of the GNU Lesser General Public
 # License along with this library. If not, see <http://www.gnu.org/licenses/>.
 
+import os
+
 import maya.cmds as cmds
 from maya import OpenMayaUI as omui
 from shiboken2 import wrapInstance
-import os
+
 import Converter as Conv
 reload(Conv)
 
@@ -23,15 +24,10 @@ script_dir = os.path.dirname(__file__)
 
 from Qt import QtWidgets, QtCore, QtGui
 
-types_dic = ['enum', 'float3', 'bool', 'long', 'float', 'double', 'typed', 'compound', 'short',
-             'time', 'double3', 'float2', 'byte', 'fltMatrix', 'char', 'doubleAngle', 'floatLinear',
-             'double2', 'long2', 'doubleLinear', 'matrix', 'double4', 'generic']
-
 
 class ConverterUI(QtWidgets.QWidget):
 
     def __init__(self):
-
         self.ui_name = 'Scene Converter'
         parent = getDock(QtWidgets.QWidget, self.ui_name + 'Dock', self.ui_name)
         super(ConverterUI, self).__init__(parent)
@@ -131,6 +127,7 @@ class EditorUI(QtWidgets.QWidget):
         self.populate_ui()
 
         # ---------------------------
+
     def show_ui(self):
         self.newWindow.show()  # exec_() > modal
 
@@ -146,6 +143,57 @@ class EditorUI(QtWidgets.QWidget):
         self.render_in_box = QtWidgets.QComboBox(self.main_widget)
         self.render_in_box.currentIndexChanged.connect(self.populate_render_in)
         self.render_in_Layout.addWidget(self.render_in_box)
+
+        self.checks_layout_in = QtWidgets.QHBoxLayout()
+
+        self.inherited_check_in = QtWidgets.QCheckBox(self.main_widget)
+        self.inherited_check_in.setText("Inherited")
+        self.inherited_check_in.setChecked(True)
+        self.inherited_check_in.stateChanged.connect(self.populate_render_in)
+        self.checks_layout_in.addWidget(self.inherited_check_in)
+
+        self.maps_check_in = QtWidgets.QCheckBox(self.main_widget)
+        self.maps_check_in.setText("Float3")
+        self.maps_check_in.setChecked(True)
+        self.maps_check_in.stateChanged.connect(self.populate_render_in)
+        self.checks_layout_in.addWidget(self.maps_check_in)
+
+        self.float_check_in = QtWidgets.QCheckBox(self.main_widget)
+        self.float_check_in.setText("Float")
+        self.float_check_in.setChecked(True)
+        self.float_check_in.stateChanged.connect(self.populate_render_in)
+        self.checks_layout_in.addWidget(self.float_check_in)
+
+        self.integer_check_in = QtWidgets.QCheckBox(self.main_widget)
+        self.integer_check_in.setText("Integer")
+        self.integer_check_in.setChecked(True)
+        self.integer_check_in.stateChanged.connect(self.populate_render_in)
+        self.checks_layout_in.addWidget(self.integer_check_in)
+
+        self.bool_check_in = QtWidgets.QCheckBox(self.main_widget)
+        self.bool_check_in.setText("Bool")
+        self.bool_check_in.setChecked(True)
+        self.bool_check_in.stateChanged.connect(self.populate_render_in)
+        self.checks_layout_in.addWidget(self.bool_check_in)
+
+        self.other_check_in = QtWidgets.QCheckBox(self.main_widget)
+        self.other_check_in.setText("Other")
+        self.other_check_in.setChecked(True)
+        self.other_check_in.stateChanged.connect(self.populate_render_in)
+        self.checks_layout_in.addWidget(self.other_check_in)
+
+        self.expand_button_in = QtWidgets.QPushButton(self.main_widget)
+        self.expand_button_in.setText("+")
+        self.expand_button_in.setMaximumSize(25, 25)
+        self.checks_layout_in.addWidget(self.expand_button_in)
+
+        self.collapse_button_in = QtWidgets.QPushButton(self.main_widget)
+        self.collapse_button_in.setText("-")
+        self.collapse_button_in.setMaximumSize(25, 25)
+        self.checks_layout_in.addWidget(self.collapse_button_in)
+
+        self.render_in_Layout.addLayout(self.checks_layout_in)
+
         self.render_in_tree = QtWidgets.QTreeWidget(self.main_widget)
         self.render_in_tree.setAutoFillBackground(True)
         self.render_in_tree.setAlternatingRowColors(True)
@@ -162,6 +210,57 @@ class EditorUI(QtWidgets.QWidget):
         self.render_out_box = QtWidgets.QComboBox(self.main_widget)
         self.render_out_box.currentIndexChanged.connect(self.populate_render_out)
         self.render_out_Layout.addWidget(self.render_out_box)
+
+        self.checks_layout_out = QtWidgets.QHBoxLayout()
+
+        self.inherited_check_out = QtWidgets.QCheckBox(self.main_widget)
+        self.inherited_check_out.setText("Inherited")
+        self.inherited_check_out.setChecked(True)
+        self.inherited_check_out.stateChanged.connect(self.populate_render_out)
+        self.checks_layout_out.addWidget(self.inherited_check_out)
+
+        self.maps_check_out = QtWidgets.QCheckBox(self.main_widget)
+        self.maps_check_out.setText("Float3")
+        self.maps_check_out.setChecked(True)
+        self.maps_check_out.stateChanged.connect(self.populate_render_out)
+        self.checks_layout_out.addWidget(self.maps_check_out)
+
+        self.float_check_out = QtWidgets.QCheckBox(self.main_widget)
+        self.float_check_out.setText("Float")
+        self.float_check_out.setChecked(True)
+        self.float_check_out.stateChanged.connect(self.populate_render_out)
+        self.checks_layout_out.addWidget(self.float_check_out)
+
+        self.integer_check_out = QtWidgets.QCheckBox(self.main_widget)
+        self.integer_check_out.setText("Integer")
+        self.integer_check_out.setChecked(True)
+        self.integer_check_out.stateChanged.connect(self.populate_render_out)
+        self.checks_layout_out.addWidget(self.integer_check_out)
+
+        self.bool_check_out = QtWidgets.QCheckBox(self.main_widget)
+        self.bool_check_out.setText("Bool")
+        self.bool_check_out.setChecked(True)
+        self.bool_check_out.stateChanged.connect(self.populate_render_out)
+        self.checks_layout_out.addWidget(self.bool_check_out)
+
+        self.other_check_out = QtWidgets.QCheckBox(self.main_widget)
+        self.other_check_out.setText("Other")
+        self.other_check_out.setChecked(True)
+        self.other_check_out.stateChanged.connect(self.populate_render_out)
+        self.checks_layout_out.addWidget(self.other_check_out)
+
+        self.expand_button_out = QtWidgets.QPushButton(self.main_widget)
+        self.expand_button_out.setText("+")
+        self.expand_button_out.setMaximumSize(25, 25)
+        self.checks_layout_out.addWidget(self.expand_button_out)
+
+        self.collapse_button_out = QtWidgets.QPushButton(self.main_widget)
+        self.collapse_button_out.setText("-")
+        self.collapse_button_out.setMaximumSize(25, 25)
+        self.checks_layout_out.addWidget(self.collapse_button_out)
+
+        self.render_out_Layout.addLayout(self.checks_layout_out)
+
         self.render_out_tree = QtWidgets.QTreeWidget(self.main_widget)
         self.render_out_tree.setAutoFillBackground(True)
         self.render_out_tree.setAlternatingRowColors(True)
@@ -180,12 +279,6 @@ class EditorUI(QtWidgets.QWidget):
         self.match_button.setMaximumSize(25, 700)
         self.match_button.clicked.connect(self.match_selection)
         self.match_layout.addWidget(self.match_button)
-
-        # self.skip_button = QtWidgets.QPushButton(self.main_widget)
-        # self.skip_button.setMinimumSize(15, 30)
-        # self.skip_button.setMaximumSize(25, 40)
-        # self.skip_button.clicked.connect(self.match_skip)
-        # self.match_layout.addWidget(self.skip_button)
 
         self.main_Layout.addWidget(self.match_widget)
 
@@ -234,8 +327,12 @@ class EditorUI(QtWidgets.QWidget):
 
         self.main_Layout.addWidget(self.buttons_widget)
 
+        self.expand_button_in.clicked.connect(self.render_in_tree.expandAll)
+        self.collapse_button_in.clicked.connect(self.render_in_tree.collapseAll)
+        self.expand_button_out.clicked.connect(self.render_out_tree.expandAll)
+        self.collapse_button_out.clicked.connect(self.render_out_tree.collapseAll)
+
         self.match_button.setText(">")
-        # self.skip_button.setText("X")
         self.delete_button.setText("Delete selected")
         self.clear_button.setText("Clear All")
         self.save_button.setText("Save")
@@ -255,18 +352,40 @@ class EditorUI(QtWidgets.QWidget):
         self.populate_render_out()
 
     def populate_render_in(self):
+        inherited = self.inherited_check_in.isChecked()
+        others = self.other_check_in.isChecked()
+
+        checks_dic = {'float3': self.maps_check_in.isChecked(), 'float': self.float_check_in.isChecked(),
+                      'long': self.integer_check_in.isChecked(),
+                      'bool': self.bool_check_in.isChecked()}
 
         render_in = self.render_in_box.currentText()
         render_dic = self.get_nodes_types(render_in)
+
+        excluded_types = []
+        for key, value in checks_dic.items():
+            if not value:
+                excluded_types.append(key)
         if render_in != '':
-            self.populate_render_trees(self.render_in_tree, render_dic)
+            self.populate_render_trees(self.render_in_tree, render_dic, inherited, others, excluded_types)
 
     def populate_render_out(self):
+        inherited = self.inherited_check_out.isChecked()
+        others = self.other_check_out.isChecked()
+
+        checks_dic = {'float3': self.maps_check_out.isChecked(), 'float': self.float_check_out.isChecked(),
+                      'long': self.integer_check_out.isChecked(),
+                      'bool': self.bool_check_out.isChecked()}
 
         render_out = self.render_out_box.currentText()
         render_dic = self.get_nodes_types(render_out)
+
+        excluded_types = []
+        for key, value in checks_dic.items():
+            if not value:
+                excluded_types.append(key)
         if render_out != '':
-            self.populate_render_trees(self.render_out_tree, render_dic)
+            self.populate_render_trees(self.render_out_tree, render_dic, inherited, others, excluded_types)
 
     def get_nodes_types(self, render_engine):
 
@@ -284,7 +403,7 @@ class EditorUI(QtWidgets.QWidget):
         for i in range(0, count):
             tree_widget.resizeColumnToContents(i)
         tree_widget.sortItems(0, QtCore.Qt.AscendingOrder)
-        tree_widget.collapseAll()
+        # tree_widget.collapseAll()
 
     def select_source(self):
         in_item = self.render_tree.currentItem().text(0)
@@ -311,7 +430,7 @@ class EditorUI(QtWidgets.QWidget):
                 else:
                     self.render_out_tree.setCurrentItem(item)
 
-    def populate_render_trees(self, tree_widget, render_nodes):
+    def populate_render_trees(self, tree_widget, render_nodes, inherited, others, excluded_types):
         tree_widget.clear()
 
         for node_type, nodes in render_nodes.items():
@@ -322,7 +441,7 @@ class EditorUI(QtWidgets.QWidget):
                 for c in range(0, child_item.columnCount()):
                     child_item.setForeground(c, QtGui.QBrush(QtGui.QColor(250, 180, 120)))
                 parent_item.addChild(child_item)
-                node_attributes = self.Converter.get_type_attributes(node, node_type)
+                node_attributes = self.Converter.get_type_attributes(node, inherited, others, excluded_types)
                 for node_attribute, node_info in node_attributes.items():
                     item = QtWidgets.QTreeWidgetItem([node_attribute, node_info])
                     child_item.addChild(item)

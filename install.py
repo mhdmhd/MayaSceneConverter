@@ -19,6 +19,7 @@ import sys
 try:
     import maya.mel
     import maya.cmds
+
     isMaya = True
 except ImportError:
     isMaya = False
