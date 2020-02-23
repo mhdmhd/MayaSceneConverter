@@ -22,7 +22,7 @@ and how good they are but gives you a great head start.
 
 ## Tutorials
 
-* [How to convert](https://www.youtube.com/) soon
+* [How to convert](https://www.youtube.com/watch?v=I4shNs4srKw)
 * [How to create new rules](https://www.youtube.com/) soon
 
 ## Installation
