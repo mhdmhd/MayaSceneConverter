@@ -1,0 +1,607 @@
+{
+    "Engines": [
+        "mayaSoftware",
+        "redshift"
+    ],
+    "areaLight": {
+        "areaLight": "RedshiftPhysicalLight",
+        "color": [
+            "color",
+            "float3",
+            ""
+        ],
+        "colorB": [
+            "colorB",
+            "float",
+            ""
+        ],
+        "colorG": [
+            "colorG",
+            "float",
+            ""
+        ],
+        "colorR": [
+            "colorR",
+            "float",
+            ""
+        ],
+        "intensity": [
+            "intensity",
+            "float",
+            ""
+        ],
+        "lightDirection": [
+            "lightDirection",
+            "float3",
+            ""
+        ],
+        "lightDirectionX": [
+            "lightDirectionX",
+            "float",
+            ""
+        ],
+        "lightDirectionY": [
+            "lightDirectionY",
+            "float",
+            ""
+        ],
+        "lightDirectionZ": [
+            "lightDirectionZ",
+            "float",
+            ""
+        ],
+        "lightIntensity": [
+            "lightIntensity",
+            "float3",
+            ""
+        ],
+        "lightIntensityB": [
+            "lightIntensityB",
+            "float",
+            ""
+        ],
+        "lightIntensityG": [
+            "lightIntensityG",
+            "float",
+            ""
+        ],
+        "lightIntensityR": [
+            "lightIntensityR",
+            "float",
+            ""
+        ],
+        "useRayTraceShadows": [
+            "useRayTraceShadows",
+            "bool",
+            ""
+        ]
+    },
+    "blinn": {
+        "blinn": "RedshiftMaterial",
+        "color": [
+            "diffuse_color",
+            "float3",
+            ""
+        ],
+        "colorB": [
+            "diffuse_colorB",
+            "float",
+            ""
+        ],
+        "colorG": [
+            "diffuse_colorG",
+            "float",
+            ""
+        ],
+        "colorR": [
+            "diffuse_colorR",
+            "float",
+            ""
+        ],
+        "incandescence": [
+            "emission_color",
+            "float3",
+            ""
+        ],
+        "incandescenceB": [
+            "emission_colorB",
+            "float",
+            ""
+        ],
+        "incandescenceG": [
+            "emission_colorG",
+            "float",
+            ""
+        ],
+        "incandescenceR": [
+            "emission_colorR",
+            "float",
+            ""
+        ],
+        "normalCamera": [
+            "bump_input",
+            "float3",
+            ""
+        ],
+        "normalCameraX": [
+            "bump_inputB",
+            "float",
+            ""
+        ],
+        "normalCameraY": [
+            "bump_inputG",
+            "float",
+            ""
+        ],
+        "normalCameraZ": [
+            "bump_inputR",
+            "float",
+            ""
+        ],
+        "outColor": [
+            "outColor",
+            "float3",
+            ""
+        ],
+        "outColorB": [
+            "outColorB",
+            "float",
+            ""
+        ],
+        "outColorG": [
+            "outColorG",
+            "float",
+            ""
+        ],
+        "outColorR": [
+            "outColorR",
+            "float",
+            ""
+        ],
+        "specularColor": [
+            "refl_color",
+            "float3",
+            ""
+        ],
+        "specularColorB": [
+            "refl_colorB",
+            "float",
+            ""
+        ],
+        "specularColorG": [
+            "refl_colorG",
+            "float",
+            ""
+        ],
+        "specularColorR": [
+            "refl_colorR",
+            "float",
+            ""
+        ],
+        "transparency": [
+            "opacity_color",
+            "float3",
+            "Inverse"
+        ],
+        "transparencyB": [
+            "opacity_colorB",
+            "float",
+            "Inverse"
+        ],
+        "transparencyG": [
+            "opacity_colorG",
+            "float",
+            "Inverse"
+        ],
+        "transparencyR": [
+            "opacity_colorR",
+            "float",
+            "Inverse"
+        ]
+    },
+    "directionalLight": {
+        "directionalLight": "RedshiftPhysicalSun",
+        "intensity": [
+            "intensity",
+            "float",
+            ""
+        ],
+        "lightDirection": [
+            "lightDirection",
+            "float3",
+            ""
+        ],
+        "lightDirectionX": [
+            "lightDirectionX",
+            "float",
+            ""
+        ],
+        "lightDirectionY": [
+            "lightDirectionY",
+            "float",
+            ""
+        ],
+        "lightDirectionZ": [
+            "lightDirectionZ",
+            "float",
+            ""
+        ],
+        "lightIntensity": [
+            "lightIntensity",
+            "float3",
+            ""
+        ],
+        "lightIntensityB": [
+            "lightIntensityB",
+            "float",
+            ""
+        ],
+        "lightIntensityG": [
+            "lightIntensityG",
+            "float",
+            ""
+        ],
+        "lightIntensityR": [
+            "lightIntensityR",
+            "float",
+            ""
+        ],
+        "useRayTraceShadows": [
+            "useRayTraceShadows",
+            "bool",
+            ""
+        ]
+    },
+    "lambert": {
+        "color": [
+            "diffuse_color",
+            "float3",
+            ""
+        ],
+        "colorB": [
+            "diffuse_colorB",
+            "float",
+            ""
+        ],
+        "colorG": [
+            "diffuse_colorG",
+            "float",
+            ""
+        ],
+        "colorR": [
+            "diffuse_colorR",
+            "float",
+            ""
+        ],
+        "incandescence": [
+            "emission_color",
+            "float3",
+            ""
+        ],
+        "incandescenceB": [
+            "emission_colorB",
+            "float",
+            ""
+        ],
+        "incandescenceG": [
+            "emission_colorG",
+            "float",
+            ""
+        ],
+        "incandescenceR": [
+            "emission_colorR",
+            "float",
+            ""
+        ],
+        "lambert": "RedshiftMaterial",
+        "normalCamera": [
+            "bump_input",
+            "float3",
+            ""
+        ],
+        "normalCameraX": [
+            "bump_inputB",
+            "float",
+            ""
+        ],
+        "normalCameraY": [
+            "bump_inputG",
+            "float",
+            ""
+        ],
+        "normalCameraZ": [
+            "bump_inputR",
+            "float",
+            ""
+        ],
+        "transparency": [
+            "opacity_color",
+            "float3",
+            "Inverse"
+        ],
+        "transparencyB": [
+            "opacity_colorB",
+            "float",
+            "Inverse"
+        ],
+        "transparencyG": [
+            "opacity_colorG",
+            "float",
+            "Inverse"
+        ],
+        "transparencyR": [
+            "opacity_colorR",
+            "float",
+            "Inverse"
+        ]
+    },
+    "phong": {
+        "color": [
+            "diffuse_color",
+            "float3",
+            ""
+        ],
+        "colorB": [
+            "diffuse_colorB",
+            "float",
+            ""
+        ],
+        "colorG": [
+            "diffuse_colorG",
+            "float",
+            ""
+        ],
+        "colorR": [
+            "diffuse_colorR",
+            "float",
+            ""
+        ],
+        "incandescence": [
+            "emission_color",
+            "float3",
+            ""
+        ],
+        "incandescenceB": [
+            "emission_colorB",
+            "float",
+            ""
+        ],
+        "incandescenceG": [
+            "emission_colorG",
+            "float",
+            ""
+        ],
+        "incandescenceR": [
+            "emission_colorR",
+            "float",
+            ""
+        ],
+        "normalCamera": [
+            "bump_input",
+            "float3",
+            ""
+        ],
+        "normalCameraX": [
+            "bump_inputB",
+            "float",
+            ""
+        ],
+        "normalCameraY": [
+            "bump_inputG",
+            "float",
+            ""
+        ],
+        "normalCameraZ": [
+            "bump_inputR",
+            "float",
+            ""
+        ],
+        "outColor": [
+            "outColor",
+            "float3",
+            ""
+        ],
+        "outColorB": [
+            "outColorB",
+            "float",
+            ""
+        ],
+        "outColorG": [
+            "outColorG",
+            "float",
+            ""
+        ],
+        "outColorR": [
+            "outColorR",
+            "float",
+            ""
+        ],
+        "phong": "RedshiftMaterial",
+        "specularColor": [
+            "refl_color",
+            "float3",
+            ""
+        ],
+        "specularColorB": [
+            "refl_colorB",
+            "float",
+            ""
+        ],
+        "specularColorG": [
+            "refl_colorG",
+            "float",
+            ""
+        ],
+        "specularColorR": [
+            "refl_colorR",
+            "float",
+            ""
+        ],
+        "transparency": [
+            "opacity_color",
+            "float3",
+            "Inverse"
+        ],
+        "transparencyB": [
+            "opacity_colorB",
+            "float",
+            "Inverse"
+        ],
+        "transparencyG": [
+            "opacity_colorG",
+            "float",
+            "Inverse"
+        ],
+        "transparencyR": [
+            "opacity_colorR",
+            "float",
+            "Inverse"
+        ]
+    },
+    "pointLight": {
+        "color": [
+            "color",
+            "float3",
+            ""
+        ],
+        "colorB": [
+            "colorB",
+            "float",
+            ""
+        ],
+        "colorG": [
+            "colorG",
+            "float",
+            ""
+        ],
+        "colorR": [
+            "colorR",
+            "float",
+            ""
+        ],
+        "intensity": [
+            "intensity",
+            "float",
+            ""
+        ],
+        "lightDirection": [
+            "lightDirection",
+            "float3",
+            ""
+        ],
+        "lightDirectionX": [
+            "lightDirectionX",
+            "float",
+            ""
+        ],
+        "lightDirectionY": [
+            "lightDirectionY",
+            "float",
+            ""
+        ],
+        "lightDirectionZ": [
+            "lightDirectionZ",
+            "float",
+            ""
+        ],
+        "lightIntensity": [
+            "lightIntensity",
+            "float3",
+            ""
+        ],
+        "lightIntensityB": [
+            "lightIntensityB",
+            "float",
+            ""
+        ],
+        "lightIntensityG": [
+            "lightIntensityG",
+            "float",
+            ""
+        ],
+        "lightIntensityR": [
+            "lightIntensityR",
+            "float",
+            ""
+        ],
+        "pointLight": "RedshiftPhysicalLight",
+        "useRayTraceShadows": [
+            "useRayTraceShadows",
+            "bool",
+            ""
+        ]
+    },
+    "spotLight": {
+        "color": [
+            "color",
+            "float3",
+            ""
+        ],
+        "colorB": [
+            "colorB",
+            "float",
+            ""
+        ],
+        "colorG": [
+            "colorG",
+            "float",
+            ""
+        ],
+        "colorR": [
+            "colorR",
+            "float",
+            ""
+        ],
+        "intensity": [
+            "intensity",
+            "float",
+            ""
+        ],
+        "lightDirection": [
+            "lightDirection",
+            "float3",
+            ""
+        ],
+        "lightDirectionX": [
+            "lightDirectionX",
+            "float",
+            ""
+        ],
+        "lightDirectionY": [
+            "lightDirectionY",
+            "float",
+            ""
+        ],
+        "lightDirectionZ": [
+            "lightDirectionZ",
+            "float",
+            ""
+        ],
+        "lightIntensity": [
+            "lightIntensity",
+            "float3",
+            ""
+        ],
+        "lightIntensityB": [
+            "lightIntensityB",
+            "float",
+            ""
+        ],
+        "lightIntensityG": [
+            "lightIntensityG",
+            "float",
+            ""
+        ],
+        "lightIntensityR": [
+            "lightIntensityR",
+            "float",
+            ""
+        ],
+        "spotLight": "RedshiftPhysicalLight",
+        "useRayTraceShadows": [
+            "useRayTraceShadows",
+            "bool",
+            ""
+        ]
+    }
+}

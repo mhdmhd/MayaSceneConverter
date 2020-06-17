@@ -89,7 +89,7 @@ class ConverterUI(QtWidgets.QWidget):
         self.lights_check.setText("Lights")
         self.material_check.setText("Materials")
         self.selected_check.setText("Selected Only")
-        self.in_render_check.setText("Only convert from rules not from scene")
+        self.in_render_check.setText("Selected Render Engine Only")
         self.convert_button.setText("Convert")
         self.editor_button.setText("Editor")
 
@@ -312,6 +312,10 @@ class EditorUI(QtWidgets.QWidget):
         self.override_button.clicked.connect(self.add_override)
         self.buttons_layout.addWidget(self.override_button)
 
+        self.remove_button = QtWidgets.QPushButton(self.buttons_widget)
+        self.remove_button.clicked.connect(self.remove_override)
+        self.buttons_layout.addWidget(self.remove_button)
+
         spacerItemB = QtWidgets.QSpacerItem(20, 20, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
         self.buttons_layout.addItem(spacerItemB)
 
@@ -339,6 +343,7 @@ class EditorUI(QtWidgets.QWidget):
         self.load_button.setText("Load")
         self.inverse_button.setText("Inverse Value")
         self.override_button.setText("Override Value")
+        self.remove_button.setText("Remove Value")
 
     def populate_ui(self):
 
@@ -639,18 +644,19 @@ class EditorUI(QtWidgets.QWidget):
             self.set_item_colors()
 
     def add_inverse(self):
-        item = self.render_tree.currentItem()
-        if item is not None:
+        for item in self.render_tree.selectedItems():
             if item.text(2) in ['float3', 'float']:
                 item.setText(3, 'Inverse')
 
     def add_override(self):
         value, ok_pressed = QtWidgets.QInputDialog.getDouble(self, "Enter Value", "Override:", 0, 0, 100, 2)
         if ok_pressed:
-            item = self.render_tree.currentItem()
-            if item is not None:
-                # if item.text(2) in ['float3', 'float']:
+            for item in self.render_tree.selectedItems():
                 item.setText(3, str(value))
+
+    def remove_override(self):
+        for item in self.render_tree.selectedItems():
+            item.setText(3, '')
 
     def clear_all(self):
         self.render_tree.clear()
