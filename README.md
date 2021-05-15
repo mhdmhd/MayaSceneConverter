@@ -29,7 +29,7 @@ and how good they are but gives you a great head start.
 
 1. Download and unzip the *MayaSceneConverter.zip* file from [github releases](https://github.com/mhdmhd/MayaSceneConverter).
 
-2. Drag and drop the "SceneConverter/install.mel" file onto the Maya viewport.
+2. Drag and drop the "SceneConverter/install.py" file onto the Maya viewport.
 
 3. Click the icon on the shelf to run.
 
