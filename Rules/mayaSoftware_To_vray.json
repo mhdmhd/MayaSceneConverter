@@ -284,24 +284,24 @@
             ""
         ],
         "transparency": [
-            "opacityMap",
+            "refractionColor",
             "float3",
-            "Inverse"
+            ""
         ],
         "transparencyB": [
-            "opacityMapB",
+            "refractionColorB",
             "float",
-            "Inverse"
+            ""
         ],
         "transparencyG": [
-            "opacityMapG",
+            "refractionColorG",
             "float",
-            "Inverse"
+            ""
         ],
         "transparencyR": [
-            "opacityMapR",
+            "refractionColorR",
             "float",
-            "Inverse"
+            ""
         ]
     },
     "lambert": {
@@ -407,24 +407,24 @@
             ""
         ],
         "transparency": [
-            "opacityMap",
+            "refractionColor",
             "float3",
-            "Inverse"
+            ""
         ],
         "transparencyB": [
-            "opacityMapB",
+            "refractionColorB",
             "float",
-            "Inverse"
+            ""
         ],
         "transparencyG": [
-            "opacityMapG",
+            "refractionColorG",
             "float",
-            "Inverse"
+            ""
         ],
         "transparencyR": [
-            "opacityMapR",
+            "refractionColorR",
             "float",
-            "Inverse"
+            ""
         ]
     },
     "phong": {
@@ -550,24 +550,24 @@
             ""
         ],
         "transparency": [
-            "opacityMap",
+            "refractionColor",
             "float3",
-            "Inverse"
+            ""
         ],
         "transparencyB": [
-            "opacityMapB",
+            "refractionColorB",
             "float",
-            "Inverse"
+            ""
         ],
         "transparencyG": [
-            "opacityMapG",
+            "refractionColorG",
             "float",
-            "Inverse"
+            ""
         ],
         "transparencyR": [
-            "opacityMapR",
+            "refractionColorR",
             "float",
-            "Inverse"
+            ""
         ]
     },
     "phongE": {
@@ -693,24 +693,24 @@
             ""
         ],
         "transparency": [
-            "opacityMap",
+            "refractionColor",
             "float3",
-            "Inverse"
+            ""
         ],
         "transparencyB": [
-            "opacityMapB",
+            "refractionColorB",
             "float",
-            "Inverse"
+            ""
         ],
         "transparencyG": [
-            "opacityMapG",
+            "refractionColorG",
             "float",
-            "Inverse"
+            ""
         ],
         "transparencyR": [
-            "opacityMapR",
+            "refractionColorR",
             "float",
-            "Inverse"
+            ""
         ]
     }
 }

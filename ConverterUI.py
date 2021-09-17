@@ -11,8 +11,15 @@
 # You should have received a copy of the GNU Lesser General Public
 # License along with this library. If not, see <http://www.gnu.org/licenses/>.
 
-import os
+try:
+    reload  # Python 2.7
+except NameError:
+    try:
+        from importlib import reload  # Python 3.4+
+    except ImportError:
+        from imp import reload  # Python 3.0 - 3.3
 
+import os
 import maya.cmds as cmds
 from maya import OpenMayaUI as omui
 from shiboken2 import wrapInstance
@@ -674,5 +681,5 @@ def getDock(wrap, name, label):
     # tabToControl=('ChannelBoxLayerEditor', 1)
     # dockToMainWindow=("right", True)
     qtCtrl = omui.MQtUtil_findControl(ctrl)
-    ptr = wrapInstance(long(qtCtrl), wrap)
+    ptr = wrapInstance(int(qtCtrl), wrap)
     return ptr

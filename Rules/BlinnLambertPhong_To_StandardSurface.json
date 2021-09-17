@@ -1,0 +1,465 @@
+{
+    "Engines": [
+        "mayaSoftware",
+        "mayaSoftware"
+    ],
+    "blinn": {
+        "blinn": "standardSurface",
+        "color": [
+            "baseColor",
+            "float3",
+            ""
+        ],
+        "colorB": [
+            "baseColorB",
+            "float",
+            ""
+        ],
+        "colorG": [
+            "baseColorG",
+            "float",
+            ""
+        ],
+        "colorR": [
+            "baseColorR",
+            "float",
+            ""
+        ],
+        "diffuse": [
+            "base",
+            "float",
+            ""
+        ],
+        "incandescence": [
+            "emissionColor",
+            "float3",
+            ""
+        ],
+        "incandescenceB": [
+            "emissionColorB",
+            "float",
+            ""
+        ],
+        "incandescenceG": [
+            "emissionColorG",
+            "float",
+            ""
+        ],
+        "incandescenceR": [
+            "emissionColorR",
+            "float",
+            ""
+        ],
+        "normalCamera": [
+            "normalCamera",
+            "float3",
+            ""
+        ],
+        "normalCameraX": [
+            "normalCameraX",
+            "float",
+            ""
+        ],
+        "normalCameraY": [
+            "normalCameraY",
+            "float",
+            ""
+        ],
+        "normalCameraZ": [
+            "normalCameraZ",
+            "float",
+            ""
+        ],
+        "outColor": [
+            "outColor",
+            "float3",
+            ""
+        ],
+        "outColorB": [
+            "outColorB",
+            "float",
+            ""
+        ],
+        "outColorG": [
+            "outColorG",
+            "float",
+            ""
+        ],
+        "outColorR": [
+            "outColorR",
+            "float",
+            ""
+        ],
+        "outTransparency": [
+            "outTransparency",
+            "float3",
+            ""
+        ],
+        "outTransparencyB": [
+            "outTransparencyB",
+            "float",
+            ""
+        ],
+        "outTransparencyG": [
+            "outTransparencyG",
+            "float",
+            ""
+        ],
+        "outTransparencyR": [
+            "outTransparencyR",
+            "float",
+            ""
+        ],
+        "reflectedColor": [
+            "specularColor",
+            "float3",
+            ""
+        ],
+        "reflectedColorB": [
+            "specularColorB",
+            "float",
+            ""
+        ],
+        "reflectedColorG": [
+            "specularColorG",
+            "float",
+            ""
+        ],
+        "reflectedColorR": [
+            "specularColorR",
+            "float",
+            ""
+        ],
+        "reflectivity": [
+            "specular",
+            "float",
+            ""
+        ],
+        "specularColor": [
+            "specularColor",
+            "float3",
+            ""
+        ],
+        "specularColorB": [
+            "specularColorB",
+            "float",
+            ""
+        ],
+        "specularColorG": [
+            "specularColorG",
+            "float",
+            ""
+        ],
+        "specularColorR": [
+            "specularColorR",
+            "float",
+            ""
+        ],
+        "translucence": [
+            "subsurface",
+            "float",
+            ""
+        ],
+        "transparency": [
+            "opacity",
+            "float3",
+            "Inverse"
+        ],
+        "transparencyB": [
+            "opacityB",
+            "float",
+            "Inverse"
+        ],
+        "transparencyG": [
+            "opacityG",
+            "float",
+            "Inverse"
+        ],
+        "transparencyR": [
+            "opacityR",
+            "float",
+            "Inverse"
+        ]
+    },
+    "lambert": {
+        "color": [
+            "baseColor",
+            "float3",
+            ""
+        ],
+        "colorB": [
+            "baseColorB",
+            "float",
+            ""
+        ],
+        "colorG": [
+            "baseColorG",
+            "float",
+            ""
+        ],
+        "colorR": [
+            "baseColorR",
+            "float",
+            ""
+        ],
+        "diffuse": [
+            "base",
+            "float",
+            ""
+        ],
+        "incandescence": [
+            "emissionColor",
+            "float3",
+            ""
+        ],
+        "incandescenceB": [
+            "emissionColorB",
+            "float",
+            ""
+        ],
+        "incandescenceG": [
+            "emissionColorG",
+            "float",
+            ""
+        ],
+        "incandescenceR": [
+            "emissionColorR",
+            "float",
+            ""
+        ],
+        "lambert": "standardSurface",
+        "normalCamera": [
+            "normalCamera",
+            "float3",
+            ""
+        ],
+        "normalCameraX": [
+            "normalCameraX",
+            "float",
+            ""
+        ],
+        "normalCameraY": [
+            "normalCameraY",
+            "float",
+            ""
+        ],
+        "normalCameraZ": [
+            "normalCameraZ",
+            "float",
+            ""
+        ],
+        "outColor": [
+            "outColor",
+            "float3",
+            ""
+        ],
+        "outColorB": [
+            "outColorB",
+            "float",
+            ""
+        ],
+        "outColorG": [
+            "outColorG",
+            "float",
+            ""
+        ],
+        "outColorR": [
+            "outColorR",
+            "float",
+            ""
+        ],
+        "outTransparency": [
+            "outTransparency",
+            "float3",
+            ""
+        ],
+        "outTransparencyB": [
+            "outTransparencyB",
+            "float",
+            ""
+        ],
+        "outTransparencyG": [
+            "outTransparencyG",
+            "float",
+            ""
+        ],
+        "outTransparencyR": [
+            "outTransparencyR",
+            "float",
+            ""
+        ],
+        "translucence": [
+            "subsurface",
+            "float",
+            ""
+        ],
+        "transparency": [
+            "opacity",
+            "float3",
+            "Inverse"
+        ],
+        "transparencyB": [
+            "opacityB",
+            "float",
+            "Inverse"
+        ],
+        "transparencyG": [
+            "opacityG",
+            "float",
+            "Inverse"
+        ],
+        "transparencyR": [
+            "opacityR",
+            "float",
+            "Inverse"
+        ]
+    },
+    "phong": {
+        "color": [
+            "baseColor",
+            "float3",
+            ""
+        ],
+        "colorB": [
+            "baseColorB",
+            "float",
+            ""
+        ],
+        "colorG": [
+            "baseColorG",
+            "float",
+            ""
+        ],
+        "colorR": [
+            "baseColorR",
+            "float",
+            ""
+        ],
+        "diffuse": [
+            "base",
+            "float",
+            ""
+        ],
+        "incandescence": [
+            "emissionColor",
+            "float3",
+            ""
+        ],
+        "incandescenceB": [
+            "emissionColorB",
+            "float",
+            ""
+        ],
+        "incandescenceG": [
+            "emissionColorG",
+            "float",
+            ""
+        ],
+        "incandescenceR": [
+            "emissionColorR",
+            "float",
+            ""
+        ],
+        "normalCamera": [
+            "normalCamera",
+            "float3",
+            ""
+        ],
+        "normalCameraX": [
+            "normalCameraX",
+            "float",
+            ""
+        ],
+        "normalCameraY": [
+            "normalCameraY",
+            "float",
+            ""
+        ],
+        "normalCameraZ": [
+            "normalCameraZ",
+            "float",
+            ""
+        ],
+        "outColor": [
+            "outColor",
+            "float3",
+            ""
+        ],
+        "outColorB": [
+            "outColorB",
+            "float",
+            ""
+        ],
+        "outColorG": [
+            "outColorG",
+            "float",
+            ""
+        ],
+        "outColorR": [
+            "outColorR",
+            "float",
+            ""
+        ],
+        "outTransparency": [
+            "outTransparency",
+            "float3",
+            ""
+        ],
+        "outTransparencyB": [
+            "outTransparencyB",
+            "float",
+            ""
+        ],
+        "outTransparencyG": [
+            "outTransparencyG",
+            "float",
+            ""
+        ],
+        "outTransparencyR": [
+            "outTransparencyR",
+            "float",
+            ""
+        ],
+        "phong": "standardSurface",
+        "specularColor": [
+            "specularColor",
+            "float3",
+            ""
+        ],
+        "specularColorB": [
+            "specularColorB",
+            "float",
+            ""
+        ],
+        "specularColorG": [
+            "specularColorG",
+            "float",
+            ""
+        ],
+        "specularColorR": [
+            "specularColorR",
+            "float",
+            ""
+        ],
+        "transparency": [
+            "opacity",
+            "float3",
+            "Inverse"
+        ],
+        "transparencyB": [
+            "opacityB",
+            "float",
+            "Inverse"
+        ],
+        "transparencyG": [
+            "opacityG",
+            "float",
+            "Inverse"
+        ],
+        "transparencyR": [
+            "opacityR",
+            "float",
+            "Inverse"
+        ]
+    }
+}
