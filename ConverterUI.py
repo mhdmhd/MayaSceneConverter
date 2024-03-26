@@ -319,6 +319,10 @@ class EditorUI(QtWidgets.QWidget):
         self.override_button.clicked.connect(self.add_override)
         self.buttons_layout.addWidget(self.override_button)
 
+        self.multiply_button = QtWidgets.QPushButton(self.buttons_widget)
+        self.multiply_button.clicked.connect(self.add_multiply)
+        self.buttons_layout.addWidget(self.multiply_button)
+
         self.remove_button = QtWidgets.QPushButton(self.buttons_widget)
         self.remove_button.clicked.connect(self.remove_override)
         self.buttons_layout.addWidget(self.remove_button)
@@ -350,6 +354,7 @@ class EditorUI(QtWidgets.QWidget):
         self.load_button.setText("Load")
         self.inverse_button.setText("Inverse Value")
         self.override_button.setText("Override Value")
+        self.multiply_button.setText("Multiply Value")
         self.remove_button.setText("Remove Value")
 
     def populate_ui(self):
@@ -661,6 +666,12 @@ class EditorUI(QtWidgets.QWidget):
             for item in self.render_tree.selectedItems():
                 item.setText(3, str(value))
 
+    def add_multiply(self):
+        value, ok_pressed = QtWidgets.QInputDialog.getDouble(self, "Enter Value", "Multiply:", 0, 0, 100, 2)
+        if ok_pressed:
+            for item in self.render_tree.selectedItems():
+                item.setText(3, str(value))
+
     def remove_override(self):
         for item in self.render_tree.selectedItems():
             item.setText(3, '')
@@ -680,6 +691,6 @@ def getDock(wrap, name, label):
     ctrl = cmds.workspaceControl(name, r=True, rs=True, floating=True, label=label)
     # tabToControl=('ChannelBoxLayerEditor', 1)
     # dockToMainWindow=("right", True)
-    qtCtrl = omui.MQtUtil_findControl(ctrl)
+    qtCtrl = omui.MQtUtil.findControl(ctrl)
     ptr = wrapInstance(int(qtCtrl), wrap)
     return ptr
