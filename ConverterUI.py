@@ -22,7 +22,11 @@ except NameError:
 import os
 import maya.cmds as cmds
 from maya import OpenMayaUI as omui
-from shiboken2 import wrapInstance
+
+try:
+  from shiboken6 import wrapInstance
+except ImportError:
+  from shiboken2 import wrapInstance
 
 import Converter as Conv
 reload(Conv)
