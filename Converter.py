@@ -40,19 +40,13 @@ class ConverterClass(object):
         self.all_plugins_nodes = self.get_all_engines_nodes()
 
     def get_render_engines(self):
-        renders = []
-        plugins = cmds.renderer(query=True, namesOfAvailableRenderers=True)
-        for plugin in plugins:
-            if plugin not in ['mayaHardware2', 'mayaVector', 'turtle']:
-                renders.append(plugin)
-        return renders
+        excluded = {'mayaHardware2', 'mayaVector', 'turtle'}
+        plugins = cmds.renderer(query=True, namesOfAvailableRenderers=True) or []
+        return [p for p in plugins if p not in excluded]
 
     def is_plugin_loaded(self, plugin):
-        loaded_plugins = cmds.pluginInfo(query=True, listPlugins=True)
-        if plugin in loaded_plugins:
-            return True
-        else:
-            return False
+        loaded_plugins = cmds.pluginInfo(query=True, listPlugins=True) or []
+        return plugin in loaded_plugins
 
     def get_current_render(self):
         current_render = cmds.getAttr("defaultRenderGlobals.currentRenderer")
@@ -150,8 +144,8 @@ class ConverterClass(object):
                             in_node_dic[attribute] = source
                         elif cmds.connectionInfo(node_attr, isExactSource=True):
                             destinations = cmds.connectionInfo(node_attr, destinationFromSource=True)
-                            for destination in destinations:
-                                out_node_dic[attribute] = destination
+                            if destinations:
+                                out_node_dic[attribute] = destinations
                         attr_value = cmds.getAttr(node_attr)
                         attributes_dic[attribute] = attr_value
         return attributes_dic, in_node_dic, out_node_dic
@@ -189,8 +183,9 @@ class ConverterClass(object):
 
             if cmds.nodeType(new_node) != 'unknown':
 
+                fetched = self.fetch_attributes(file_data, in_node)
                 #  static values ##################################
-                in_value_attributes = self.fetch_attributes(file_data, in_node)[0].items()
+                in_value_attributes = fetched[0].items()
                 for in_attribute, in_value in in_value_attributes:
                     out_attribute_list = self.convert_attributes(file_data, node_type, in_attribute)
                     if out_attribute_list is not None and in_value is not None:
@@ -198,20 +193,22 @@ class ConverterClass(object):
                         out_attribute_type = out_attribute_list[1]
                         out_attribute_factor = out_attribute_list[2]
 
-                        if isinstance(in_value, (list, dict, tuple)):
-                            if len(in_value) == 3:
+                        if isinstance(in_value, (list, tuple)) and len(in_value) > 0:
+                            # cmds.getAttr for float3 returns [(r, g, b)] - unwrap outer list
+                            inner = in_value[0] if isinstance(in_value[0], (list, tuple)) else in_value
+                            if len(inner) == 3:
                                 if out_attribute_factor == 'Inverse':
-                                    value_a = abs(1 - in_value[0][0])
-                                    value_b = abs(1 - in_value[0][1])
-                                    value_c = abs(1 - in_value[0][2])
+                                    value_a = abs(1 - inner[0])
+                                    value_b = abs(1 - inner[1])
+                                    value_c = abs(1 - inner[2])
                                 elif isfloat(out_attribute_factor):
                                     value_a = float(out_attribute_factor)
                                     value_b = float(out_attribute_factor)
                                     value_c = float(out_attribute_factor)
                                 else:
-                                    value_a = in_value[0][0]
-                                    value_b = in_value[0][1]
-                                    value_c = in_value[0][2]
+                                    value_a = inner[0]
+                                    value_b = inner[1]
+                                    value_c = inner[2]
 
                                 print(in_node + '.' + out_attribute + ' is setting to value(list): ',
                                       value_a, value_b, value_c)
@@ -238,7 +235,7 @@ class ConverterClass(object):
                                 traceback.print_exc()
 
                 #  input connections ###################################
-                in_connection_inputs = self.fetch_attributes(file_data, in_node)[1].items()
+                in_connection_inputs = fetched[1].items()
                 for in_attribute_input, in_connection_input in in_connection_inputs:
                     out_attribute_list = self.convert_attributes(file_data, node_type, in_attribute_input)
                     if out_attribute_list is not None:
@@ -260,22 +257,23 @@ class ConverterClass(object):
                             traceback.print_exc()
 
                 #  output connections ###################################
-                in_connection_outputs = self.fetch_attributes(file_data, in_node)[2].items()
-                for in_attribute_output, in_connection_output in in_connection_outputs:
+                in_connection_outputs = fetched[2].items()
+                for in_attribute_output, in_connection_output_list in in_connection_outputs:
                     out_attribute_list = self.convert_attributes(file_data, node_type, in_attribute_output)
                     if out_attribute_list is not None:
                         out_attribute_output = out_attribute_list[0]
-                        print(in_node + '.' + out_attribute_output + ' is connecting to ' + in_connection_output)
-                        try:
-                            cmds.connectAttr(new_node + '.' + out_attribute_output, in_connection_output, f=True)
-                            print('\tConnected successfully \n')
-                        except Exception:
-                            print('\tFailed to connect \n')
-                            unconverted_attributes.append(new_node + '.' + in_connection_output)
-                            traceback.print_exc()
+                        for in_connection_output in in_connection_output_list:
+                            print(in_node + '.' + out_attribute_output + ' is connecting to ' + in_connection_output)
+                            try:
+                                cmds.connectAttr(new_node + '.' + out_attribute_output, in_connection_output, f=True)
+                                print('\tConnected successfully \n')
+                            except Exception:
+                                print('\tFailed to connect \n')
+                                unconverted_attributes.append(new_node + '.' + in_connection_output)
+                                traceback.print_exc()
 
                 if category == 'light':
-                    in_transform = cmds.listRelatives(in_node, parent=True, shapes=True, fullPath=True)
+                    in_transform = cmds.listRelatives(in_node, parent=True, fullPath=True)
                     cmds.matchTransform(new_node, in_transform)
                     in_parent = cmds.listRelatives(in_transform, parent=True, fullPath=True)
                     if in_parent:
@@ -289,6 +287,7 @@ class ConverterClass(object):
             else:
                 cmds.delete(new_node)
                 print('Failed to create a new node of type: ' + out_node_type + '\n')
+                return (out_node_type + ' (unknown) : ' + in_node), unconverted_attributes
 
             return None, unconverted_attributes
         else:
@@ -306,13 +305,17 @@ class ConverterClass(object):
         selection = cmds.ls(sl=True)
         selection_shapes = self.get_shapes_from_objects(selection)
         selection_shapes = list(set(selection_shapes))
-        shading_engine = cmds.listConnections(selection_shapes, type='shadingEngine')
-        materials_connections = cmds.listConnections(shading_engine)
-        materials = list(set(cmds.ls(materials_connections, materials=True)))
+        if not selection_shapes:
+            return [], []
+        shading_engine = cmds.listConnections(selection_shapes, type='shadingEngine') or []
+        if not shading_engine:
+            return [], []
+        materials_connections = cmds.listConnections(shading_engine) or []
+        materials = list(set(cmds.ls(materials_connections, materials=True) or []))
         textures = []
         for material in materials:
-            textures_connections = cmds.listConnections(material)
-            textures.extend(cmds.ls(textures_connections, textures=True))
+            textures_connections = cmds.listConnections(material) or []
+            textures.extend(cmds.ls(textures_connections, textures=True) or [])
         textures = list(set(textures))
         return materials, textures
 
@@ -402,57 +405,61 @@ class ConverterClass(object):
         engine_loaded = self.is_target_engine_loaded(data)
         if engine_loaded:
 
-            unconverted_nodes = []
-            unconverted_attributes = []
+            cmds.undoInfo(openChunk=True, chunkName='SceneConversion')
+            try:
+                unconverted_nodes = []
+                unconverted_attributes = []
 
-            if materials:
-                scene_materials, scene_textures = self.list_materials(source_engine, selected=selected,
-                                                                      in_render=in_render)
-                self.print_title('Converting Materials:')
-                for material in scene_materials:
-                    print('\n\tMaterial:' + material)
+                if materials:
+                    scene_materials, scene_textures = self.list_materials(source_engine, selected=selected,
+                                                                          in_render=in_render)
+                    self.print_title('Converting Materials:')
+                    for material in scene_materials:
+                        print('\n\tMaterial:' + material)
+                        print('****************************\n')
+                        node, attributes = self.replace_node(data, material, 'material')
+                        if node is not None:
+                            unconverted_nodes.append(node)
+                        unconverted_attributes.extend(attributes)
+
+                    self.print_title('Converting Textures:')
+                    for texture in scene_textures:
+                        print('\n\tTexture:' + texture)
+                        print('****************************\n')
+                        node, attributes = self.replace_node(data, texture, 'texture')
+                        if node is not None:
+                            unconverted_nodes.append(node)
+                        unconverted_attributes.extend(attributes)
+
+                if lights:
+                    scene_lights = self.list_lights(source_engine, selected=selected, in_render=in_render)
+                    self.print_title('Converting Lights:')
+                    for light in scene_lights:
+                        print('\n\tLight:' + light)
+                        print('****************************\n')
+                        node, attributes = self.replace_node(data, light, 'light')
+                        if node is not None:
+                            unconverted_nodes.append(node)
+                        unconverted_attributes.extend(attributes)
+
+                scene_utilities = self.list_utilities(source_engine, selected=selected, in_render=in_render)
+                self.print_title('Converting Utilities:')
+                for utility in scene_utilities:
+                    print('\n\tUtility:' + utility)
                     print('****************************\n')
-                    node, attributes = self.replace_node(data, material, 'material')
+                    node, attributes = self.replace_node(data, utility, 'utility')
                     if node is not None:
                         unconverted_nodes.append(node)
                     unconverted_attributes.extend(attributes)
 
-                self.print_title('Converting Textures:')
-                for texture in scene_textures:
-                    print('\n\tTexture:' + texture)
-                    print('****************************\n')
-                    node, attributes = self.replace_node(data, texture, 'texture')
-                    if node is not None:
-                        unconverted_nodes.append(node)
-                    unconverted_attributes.extend(attributes)
-
-            if lights:
-                scene_lights = self.list_lights(source_engine, selected=selected, in_render=in_render)
-                self.print_title('Converting Lights:')
-                for light in scene_lights:
-                    print('\n\tLight:' + light)
-                    print('****************************\n')
-                    node, attributes = self.replace_node(data, light, 'light')
-                    if node is not None:
-                        unconverted_nodes.append(node)
-                    unconverted_attributes.extend(attributes)
-
-            scene_utilities = self.list_utilities(source_engine, selected=selected, in_render=in_render)
-            self.print_title('Converting Utilities:')
-            for utility in scene_utilities:
-                print('\n\tUtility:' + utility)
-                print('****************************\n')
-                node, attributes = self.replace_node(data, utility, 'utility')
-                if node is not None:
-                    unconverted_nodes.append(node)
-                unconverted_attributes.extend(attributes)
-
-            print('\n Nodes failed to be converted:' + str(len(unconverted_nodes)) + '\n')
-            for node in unconverted_nodes:
-                print('\n\t' + node)
-            print('\n Attributes failed to be connected:' + str(len(unconverted_attributes)) + ' \n')
-            for attribute in unconverted_attributes:
-                print('\n\t' + attribute)
+                print('\n Nodes failed to be converted:' + str(len(unconverted_nodes)) + '\n')
+                for node in unconverted_nodes:
+                    print('\n\t' + node)
+                print('\n Attributes failed to be connected:' + str(len(unconverted_attributes)) + ' \n')
+                for attribute in unconverted_attributes:
+                    print('\n\t' + attribute)
+            finally:
+                cmds.undoInfo(closeChunk=True)
 
         else:
             cmds.inViewMessage(amg='In-view message <hl>Target render engine is not loaded</hl>.', pos='midCenter',
@@ -463,7 +470,7 @@ class ConverterClass(object):
         for root_paths, _, file_names in os.walk(directory):
             for f in file_names:
                 if f.endswith('.json'):
-                    file_name = f.strip('.json')
+                    file_name = os.path.splitext(f)[0]
                     file_list.append(file_name)
         return file_list
 
@@ -472,5 +479,5 @@ def isfloat(value):
     try:
         float(value)
         return True
-    except ValueError:
+    except (ValueError, TypeError):
         return False
