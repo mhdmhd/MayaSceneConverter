@@ -90,7 +90,7 @@ class ConverterUI(QtWidgets.QWidget):
 
         self.web_link = QtWidgets.QLabel(self)
         url_link1 = "<a href=\"https://www.linkedin.com/in/mahmoud-el-ashry-29324020/\" style=\"color: grey;\">'Linkedin'</a>"
-        url_link2 = "<a href=\"https://www.artstation.com/mhdmhd\" style=\"color: grey;\">'Artsation'</a>"
+        url_link2 = "<a href=\"https://www.artstation.com/mhdmhd\" style=\"color: grey;\">'ArtStation'</a>"
         self.web_link.setText(url_link1 + '\t\t' + url_link2)
         self.web_link.setOpenExternalLinks(True)
         self.web_link.setAlignment(QtCore.Qt.AlignRight)
