@@ -1,7 +1,7 @@
 {
     "Engines": [
         "arnold",
-        "mayaSoftware"
+        "arnold"
     ],
     "aiAreaLight": {
         "aiAreaLight": "areaLight",
@@ -253,6 +253,34 @@
         "useRayTraceShadows": [
             "useRayTraceShadows",
             "bool",
+            ""
+        ]
+    },
+    "aiColorCorrect": {
+        "aiColorCorrect": "aiColorCorrect",
+        "input": [
+            "outColor",
+            "float3",
+            ""
+        ],
+        "inputA": [
+            "outAlpha",
+            "float",
+            ""
+        ],
+        "inputB": [
+            "outColorB",
+            "float",
+            ""
+        ],
+        "inputG": [
+            "outColorG",
+            "float",
+            ""
+        ],
+        "inputR": [
+            "outColorR",
+            "float",
             ""
         ]
     },

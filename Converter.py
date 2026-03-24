@@ -165,11 +165,40 @@ class ConverterClass(object):
         else:
             return
 
+    def skip_node(self, file_data, in_node):
+        unconverted_attributes = []
+        node_type = cmds.nodeType(in_node)
+        fetched = self.fetch_attributes(file_data, in_node)
+        in_connections = fetched[1]   # {attr: source}
+        out_connections = fetched[2]  # {attr: [destinations]}
+
+        # For each mapped attribute pair, reconnect the input source to the output destinations
+        for in_attr, in_source in in_connections.items():
+            out_attribute_list = self.convert_attributes(file_data, node_type, in_attr)
+            if out_attribute_list is not None:
+                out_attr = out_attribute_list[0]
+                if out_attr in out_connections:
+                    for destination in out_connections[out_attr]:
+                        print('Skipping ' + in_node + ': connecting ' + in_source + ' to ' + destination)
+                        try:
+                            cmds.connectAttr(in_source, destination, f=True)
+                            print('\tConnected successfully \n')
+                        except Exception:
+                            print('\tFailed to connect \n')
+                            unconverted_attributes.append(destination)
+                            traceback.print_exc()
+
+        cmds.delete(in_node)
+        return None, unconverted_attributes
+
     def replace_node(self, file_data, in_node, category):
         unconverted_attributes = []
         node_type = cmds.nodeType(in_node)
         out_node_type = self.convert_node(file_data, node_type)
         if out_node_type is not None:
+            if out_node_type == 'Skip':
+                return self.skip_node(file_data, in_node)
+
             if category == 'light':
                 new_node = cmds.shadingNode(out_node_type, asLight=True)
             elif category == 'texture':
@@ -201,6 +230,11 @@ class ConverterClass(object):
                                     value_a = abs(1 - inner[0])
                                     value_b = abs(1 - inner[1])
                                     value_c = abs(1 - inner[2])
+                                elif isinstance(out_attribute_factor, str) and out_attribute_factor.startswith('*'):
+                                    multiplier = float(out_attribute_factor[1:])
+                                    value_a = inner[0] * multiplier
+                                    value_b = inner[1] * multiplier
+                                    value_c = inner[2] * multiplier
                                 elif isfloat(out_attribute_factor):
                                     value_a = float(out_attribute_factor)
                                     value_b = float(out_attribute_factor)
@@ -223,6 +257,9 @@ class ConverterClass(object):
                         else:
                             if out_attribute_factor == 'Inverse' and isinstance(in_value, float):
                                 in_value = abs(1 - in_value)
+                            elif isinstance(out_attribute_factor, str) and out_attribute_factor.startswith('*') and isinstance(in_value, (int, float)):
+                                multiplier = float(out_attribute_factor[1:])
+                                in_value = in_value * multiplier
                             elif isfloat(out_attribute_factor):
                                 in_value = float(out_attribute_factor)
                             print(in_node + '.' + out_attribute + ' is setting to value: ', in_value)
@@ -372,7 +409,7 @@ class ConverterClass(object):
             light_shape_names = []
         return light_shape_names
 
-    def list_utilities(self, engine, selected=True, in_render=True):
+    def list_utilities(self, engine, selected=True, in_render=True, file_data=None):
         if in_render:
             type_list = self.get_type_nodes(engine, 'utility')  # only from specific render engine
         else:
@@ -387,6 +424,18 @@ class ConverterClass(object):
         exclude_software = self.get_type_nodes('mayaSoftware', 'utility')
         ignore_utilities = cmds.ls(type=exclude_software)
         correct_utilities = [i for i in utilities if i not in ignore_utilities]
+
+        # Include mayaSoftware utility nodes that have rules defined (e.g. Skip rules for bump2d)
+        if file_data is not None:
+            ruled_sw_types = [t for t in exclude_software if t in file_data]
+            if ruled_sw_types:
+                if selected:
+                    ruled_utilities = cmds.ls(selection, type=ruled_sw_types)
+                else:
+                    ruled_utilities = cmds.ls(type=ruled_sw_types)
+                for u in ruled_utilities:
+                    if u not in correct_utilities:
+                        correct_utilities.append(u)
 
         return correct_utilities
 
@@ -442,7 +491,7 @@ class ConverterClass(object):
                             unconverted_nodes.append(node)
                         unconverted_attributes.extend(attributes)
 
-                scene_utilities = self.list_utilities(source_engine, selected=selected, in_render=in_render)
+                scene_utilities = self.list_utilities(source_engine, selected=selected, in_render=in_render, file_data=data)
                 self.print_title('Converting Utilities:')
                 for utility in scene_utilities:
                     print('\n\tUtility:' + utility)

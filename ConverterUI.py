@@ -286,10 +286,16 @@ class EditorUI(QtWidgets.QWidget):
         self.match_layout = QtWidgets.QVBoxLayout(self.match_widget)
 
         self.match_button = QtWidgets.QPushButton(self.main_widget)
-        self.match_button.setMinimumSize(15, 600)
+        self.match_button.setMinimumSize(15, 300)
         self.match_button.setMaximumSize(25, 700)
         self.match_button.clicked.connect(self.match_selection)
         self.match_layout.addWidget(self.match_button)
+
+        self.skip_button = QtWidgets.QPushButton(self.main_widget)
+        self.skip_button.setMinimumSize(15, 300)
+        self.skip_button.setMaximumSize(25, 700)
+        self.skip_button.clicked.connect(self.skip_node_selection)
+        self.match_layout.addWidget(self.skip_button)
 
         self.main_Layout.addWidget(self.match_widget)
 
@@ -352,6 +358,8 @@ class EditorUI(QtWidgets.QWidget):
         self.collapse_button_out.clicked.connect(self.render_out_tree.collapseAll)
 
         self.match_button.setText(">")
+        self.skip_button.setText("X")
+        self.skip_button.setToolTip("Skip Node - removes the node and passes connections through")
         self.delete_button.setText("Delete selected")
         self.clear_button.setText("Clear All")
         self.save_button.setText("Save")
@@ -594,6 +602,54 @@ class EditorUI(QtWidgets.QWidget):
 
             self.render_tree.setCurrentItem(parent_item)
 
+    def skip_node_selection(self):
+        in_item = self.render_in_tree.currentItem()
+        if in_item is None:
+            cmds.inViewMessage(amg='In-view message <hl>Select a node from the source tree</hl>.', pos='topCenter', fade=True)
+            return
+
+        # Case 1: Node selected (has parent category, no grandparent) - create Skip parent
+        if in_item.parent() is not None and in_item.parent().parent() is None:
+            node_name = in_item.text(0)
+            parent_item = QtWidgets.QTreeWidgetItem([node_name, 'Skip'])
+            for c in range(parent_item.columnCount()):
+                parent_item.setForeground(c, QtGui.QBrush(QtGui.QColor(250, 180, 120)))
+            self.render_tree.addTopLevelItem(parent_item)
+            self.render_tree.expandAll()
+            self.render_tree.setCurrentItem(parent_item)
+            return
+
+        # Case 2: Attribute selected - add input->output mapping under existing Skip parent
+        out_item = self.render_out_tree.currentItem()
+        if out_item is None:
+            cmds.inViewMessage(amg='In-view message <hl>Select an output attribute from the right tree</hl>.', pos='topCenter', fade=True)
+            return
+
+        in_attr_parent = in_item.parent()
+        if in_attr_parent is None:
+            cmds.inViewMessage(amg='In-view message <hl>Select an attribute, not a category</hl>.', pos='topCenter', fade=True)
+            return
+
+        # Find the Skip parent in the rules tree that matches this node
+        node_name = in_attr_parent.text(0)
+        skip_parent = None
+        items = self.render_tree.findItems(node_name, QtCore.Qt.MatchExactly, 0)
+        for item in items:
+            if item.text(1) == 'Skip':
+                skip_parent = item
+                break
+
+        if skip_parent is None:
+            cmds.inViewMessage(amg='In-view message <hl>Add a Skip node for "' + node_name + '" first</hl>.', pos='topCenter', fade=True)
+            return
+
+        child_item = self.get_child_item(skip_parent, in_item, out_item)
+        if child_item is not None:
+            skip_parent.addChild(child_item)
+            self.resize_trees(self.render_tree)
+            self.render_tree.expandAll()
+            self.render_tree.setCurrentItem(child_item)
+
     def set_item_colors(self):
         root = self.render_tree.invisibleRootItem()
         node_count = root.childCount()
@@ -671,10 +727,10 @@ class EditorUI(QtWidgets.QWidget):
                 item.setText(3, str(value))
 
     def add_multiply(self):
-        value, ok_pressed = QtWidgets.QInputDialog.getDouble(self, "Enter Value", "Multiply:", 0, 0, 100, 2)
+        value, ok_pressed = QtWidgets.QInputDialog.getDouble(self, "Enter Value", "Multiply:", 1, -1000, 1000, 6)
         if ok_pressed:
             for item in self.render_tree.selectedItems():
-                item.setText(3, str(value))
+                item.setText(3, '*' + str(value))
 
     def remove_override(self):
         for item in self.render_tree.selectedItems():
